@@ -3,4 +3,20 @@
     <string name="start">Mulai Bermain</string>
     <string name="help">Paduan Bermain</string>
     <string name="exit">Keluar</string>
+    <string name="high_score">Skor Tertinggi</string>
+    <string name="tebak_gambar">Tebak Gambar</string>
+    <string name="pengenalan">Mari Mengenal</string>
+    <string name="matematika">Belajar Berhitung</string>
+
+    //kategori
+    <string name="hewan">Hewan</string>
+    <string name="angka">Angka</string>
+    <string name="bentuk">Bentuk</string>
+    <string name="warna">Warna</string>
+
+    //berhitung
+    <string name="penjumlahan">Penjumlahan</string>
+    <string name="pengurangan">Pengurangan</string>
+    <string name="perkalian">Perkalian</string>
+    <string name="pembagian">Pembagian</string>
 </resources>

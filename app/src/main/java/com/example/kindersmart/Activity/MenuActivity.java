@@ -13,9 +13,8 @@ import android.widget.ImageView;
 import com.example.kindersmart.R;
 
 public class MenuActivity extends AppCompatActivity {
-    private ImageView kindersmartIcon, soundOn, soundOff;
-    private Button startbtn, helpbtn, exitbtn;
-    private Context context;
+    private Button      startbtn, helpbtn, exitbtn, highscoreBtn;
+    private Context     context;
     private MediaPlayer bgMusic;
 
     @Override
@@ -23,18 +22,11 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         context = getApplicationContext();
-        initSound();
-        setImage();
-        setSoundOn();
-        setSoundoff();
         startGame();
         helpGame();
         exitGame();
     }
 
-    public void setImage(){
-        kindersmartIcon = findViewById(R.id.kindersmarticon);
-    }
 
     public void startGame(){
         startbtn = findViewById(R.id.ibStartGame);
@@ -58,8 +50,19 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
+    public void highScore(){
+        highscoreBtn = findViewById(R.id.highScore);
+        highscoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, HighscoreActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.bgmusic);
+        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.xuemiaojiao);
         bgMusic.start();
         bgMusic.setLooping(true);
     }
@@ -72,36 +75,6 @@ public class MenuActivity extends AppCompatActivity {
                 bgMusic.release();
             }
         }
-    }
-
-    public void initSound(){
-        soundOn = findViewById(R.id.soundOn);
-        soundOff = findViewById(R.id.soundOff);
-    }
-
-    public void setSoundOn(){
-        soundOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                soundOn.setVisibility(View.GONE);
-                soundOff.setVisibility(View.VISIBLE);
-                pauseBackgroundMusic();
-                Log.d("on", "setSoundOn: nyala");
-            }
-        });
-
-    }
-
-    public void setSoundoff(){
-        soundOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                soundOn.setVisibility(View.VISIBLE);
-                soundOff.setVisibility(View.GONE);
-                playBackgroundMusic();
-                Log.d("off", "setSoundoff: mati");
-            }
-        });
     }
 
     public void exitGame(){
