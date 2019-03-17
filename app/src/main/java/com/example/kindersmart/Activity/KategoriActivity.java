@@ -45,7 +45,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Tebak", "TebakHewan");
+                intent.putExtra("Kategori_Tebak", "1");
+                intent.putExtra("tebak","Tebak Hewan");
                 startActivity(intent);
             }
         });
@@ -57,7 +58,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Tebak", "TebakAngka");
+                intent.putExtra("Kategori_Tebak", "2");
+                intent.putExtra("tebak", "Tebak Angka");
                 startActivity(intent);
             }
         });
@@ -69,7 +71,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Tebak", "TebakBentuk");
+                intent.putExtra("Kategori_Tebak", "3");
+                intent.putExtra("tebak", "Tebak Bentuk");
                 startActivity(intent);
             }
         });
@@ -81,7 +84,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Tebak", "TebakWarna");
+                intent.putExtra("Kategori_Tebak", "4");
+                intent.putExtra("tebak", "Tebak Warna");
                 startActivity(intent);
             }
         });
