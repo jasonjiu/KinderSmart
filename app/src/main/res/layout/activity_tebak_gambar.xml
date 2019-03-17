@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.TebakGambarActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tbConfirmation"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        app:titleTextColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background">
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSoalTebak"
+        android:orientation="horizontal"
+        android:layout_below="@id/tbConfirmation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/cv_tebak"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
