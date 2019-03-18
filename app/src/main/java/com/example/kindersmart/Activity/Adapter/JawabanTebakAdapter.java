@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.kindersmart.Activity.Model.JawabanTebakGambar;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
+import com.example.kindersmart.Activity.Model.SoalTebakGambar;
 import com.example.kindersmart.R;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class JawabanTebakAdapter extends RecyclerView.Adapter<JawabanTebakAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull JawabanTebakAdapter.jtViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final JawabanTebakAdapter.jtViewHolder holder, final int position) {
         final JawabanTebakGambar jawabanTebakGambar = jawabanTebakGambarList.get(position);
         holder.btnJawab.setText(jawabanTebakGambar.getPilihan());
         holder.btnJawab.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +54,8 @@ public class JawabanTebakAdapter extends RecyclerView.Adapter<JawabanTebakAdapte
                 lastAnswer = jawabanTebakGambar.getPilihan();
                 Toast.makeText(context, lastAnswer+"", Toast.LENGTH_SHORT).show();
                 Log.d("hahaha", getLastAnswer());
-//                onImageClickListener.onImageClick(getLastAnswer(), position+"");
+                onImageClickListener.onImageClick(getLastAnswer(), -10);
+                holder.btnJawab.setEnabled(false);
             }
         });
 
