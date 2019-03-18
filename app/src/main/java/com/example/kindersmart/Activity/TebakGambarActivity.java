@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TebakGambarActivity extends AppCompatActivity implements OnImageClickListener {
-    public String                      getKategoriExtra, getNamaTebakan;
+    public String                      getKategoriExtra, getNamaTebakan, temp;
     public RecyclerView                rvSoal;
     public Context                     context;
     public RequestQueue                queue;
@@ -163,9 +163,24 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
 
 
     @Override
-    public void onImageClick(String data, String position) {
-            rvSoal.getLayoutManager().scrollToPosition(Integer.parseInt(position) + 1);
-            Log.d("wow", position);
+    public void onImageClick(String data, int position) {
+            rvSoal.getLayoutManager().scrollToPosition(position+1);
 
+            if (position == tebakGambarAdapter.getItemCount()-1){
+                Intent intent = new Intent(context, HelpActivity.class);
+                startActivity(intent);
+            }
+            Log.d("wow", position+"");
+            try {
+                Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+//            if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
+//
+//                Toast.makeText(context, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+//            }
     }
+
 }

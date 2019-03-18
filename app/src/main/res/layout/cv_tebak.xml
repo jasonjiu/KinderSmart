@@ -3,12 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="#ffffff"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="0dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linear1"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -47,6 +45,7 @@
         </LinearLayout>
 
         <View
+            android:layout_below="@id/linear2"
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -54,12 +53,31 @@
             android:background="@color/cardview_dark_background" />
 
             <android.support.v7.widget.RecyclerView
+                android:layout_below="@id/view"
                 android:id="@+id/rvJawabanTebak"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
             </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
+        <View
+            android:layout_below="@id/rvJawabanTebak"
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/cardview_dark_background" />
+
+        <ImageView
+            android:id="@+id/nextIv"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_arrow_forward_black_24dp"/>
+
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

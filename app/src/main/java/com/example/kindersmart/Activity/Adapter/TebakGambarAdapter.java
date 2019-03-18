@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.kindersmart.Activity.Model.JawabanTebakGambar;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
@@ -27,7 +28,6 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     private List<JawabanTebakGambar>        tempJawaban;
     private JawabanTebakAdapter             jawabanTebakAdapter;
     private OnImageClickListener            onImageClickListener;
-
 
     public void setJawabanTebakGambars(List<JawabanTebakGambar> jawabanTebakGambars) {
         this.jawabanTebakGambars = jawabanTebakGambars;
@@ -53,10 +53,9 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TebakGambarAdapter.tgViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final TebakGambarAdapter.tgViewHolder holder, final int position) {
         final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
         tempJawaban = new ArrayList<>();
-
         for (JawabanTebakGambar j:jawabanTebakGambars){
             if(j.getSoal_ke()==soalTebakGambar.getSoal_ke()){
                 tempJawaban.add(j);
@@ -66,13 +65,14 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         jawabanTebakAdapter = new JawabanTebakAdapter(tempJawaban, context, (OnImageClickListener) context);
         holder.rvTebak.setLayoutManager(new GridLayoutManager(context, 2));
         holder.rvTebak.setAdapter(jawabanTebakAdapter);
-        holder.rvTebak.setOnClickListener(new View.OnClickListener() {
+        holder.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position+"");
+                onImageClickListener.onImageClick("",position);
+                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
             }
         });
-        Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+
 
     }
 
@@ -88,14 +88,16 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
 
     public class tgViewHolder extends RecyclerView.ViewHolder {
-        public  ImageView     soalTebak, sound;
-        public  RecyclerView  rvTebak;
+        public ImageView        soalTebak, sound, next;
+        public RecyclerView     rvTebak;
+        public RelativeLayout   relativeLayout;
         public tgViewHolder(View itemView) {
             super(itemView);
-            soalTebak = itemView.findViewById(R.id.ivSoalTebakGambar);
-            sound = itemView.findViewById(R.id.ivSoundTebakGambar);
-
-            rvTebak = itemView.findViewById(R.id.rvJawabanTebak);
+            soalTebak       = itemView.findViewById(R.id.ivSoalTebakGambar);
+            sound           = itemView.findViewById(R.id.ivSoundTebakGambar);
+            next            = itemView.findViewById(R.id.nextIv);
+            rvTebak         = itemView.findViewById(R.id.rvJawabanTebak);
+            relativeLayout  = itemView.findViewById(R.id.linear1);
             rvTebak.setHasFixedSize(true);
 
         }
