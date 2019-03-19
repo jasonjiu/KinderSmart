@@ -55,6 +55,8 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     @Override
     public void onBindViewHolder(@NonNull final TebakGambarAdapter.tgViewHolder holder, final int position) {
         final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
+        final JawabanTebakGambar tebakGambar = jawabanTebakGambars.get(position);
+
         tempJawaban = new ArrayList<>();
         for (JawabanTebakGambar j:jawabanTebakGambars){
             if(j.getSoal_ke()==soalTebakGambar.getSoal_ke()){
@@ -63,6 +65,7 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         }
         Picasso.with(context).load(soalTebakGambar.getUrl_soal()).into(holder.soalTebak);
         jawabanTebakAdapter = new JawabanTebakAdapter(tempJawaban, context, (OnImageClickListener) context);
+
         holder.rvTebak.setLayoutManager(new GridLayoutManager(context, 2));
         holder.rvTebak.setAdapter(jawabanTebakAdapter);
         holder.next.setOnClickListener(new View.OnClickListener() {
