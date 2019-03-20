@@ -39,6 +39,8 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     public TebakGambarAdapter          tebakGambarAdapter;
     public List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
     public CustomLinearLayoutManager   lm;
+    public int                         score = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         queue= Volley.newRequestQueue(context);
         show_soal();
         toolbar();
+
+        Log.d("skore", score+"");
     }
 
     public void toolbar(){
@@ -124,18 +128,25 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     @Override
     public void onImageClick(String data, int position) {
             rvSoal.getLayoutManager().scrollToPosition(position+1);
-
             if (position == tebakGambarAdapter.getItemCount()-1){
                 Intent intent = new Intent(context, HelpActivity.class);
                 startActivity(intent);
             }
             Log.d("wow", position+"");
+
             try {
                 Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
+                Log.d("jawaban", data);
+                if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
+                    score += 10;
+                    Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
+                }
 
             }catch (Exception e){
                 e.printStackTrace();
             }
+
+        Log.d("score", score+"");
 
     }
 
