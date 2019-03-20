@@ -32,14 +32,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TebakGambarActivity extends AppCompatActivity implements OnImageClickListener {
-    public String                      getKategoriExtra, getNamaTebakan, temp;
+    public String                      getKategoriExtra, getNamaTebakan;
     public RecyclerView                rvSoal;
     public Context                     context;
     public RequestQueue                queue;
     public TebakGambarAdapter          tebakGambarAdapter;
-    public JawabanTebakAdapter         jawabanTebakGambar;
-    public List<SoalTebakGambar>       soalTebakGambarList      = new ArrayList<>();
-    public List<JawabanTebakGambar>    jawabanTebakGambarList   = new ArrayList<>();
+    public List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
     public CustomLinearLayoutManager   lm;
 
     @Override
@@ -94,7 +92,11 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                                     obj.getInt("tebakID"),
                                                     obj.getInt("soal_ke"),
                                                     obj.getString("soal_picture"),
-                                                    obj.getString("kunci_jawaban")));
+                                                    obj.getString("kunci_jawaban"),
+                                                    obj.getString("pilihan_jawaban_1"),
+                                                    obj.getString("pilihan_jawaban_2"),
+                                                    obj.getString("pilihan_jawaban_3"),
+                                                    obj.getString("pilihan_jawaban_4")));
                                         } catch (JSONException e1) {
                                             e1.printStackTrace();
                                         }
@@ -102,10 +104,8 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                     tebakGambarAdapter = new TebakGambarAdapter(context);
                                     tebakGambarAdapter.setSoalTebakGambars(soalTebakGambarList);
                                     tebakGambarAdapter.setTebakGambarAdapter((OnImageClickListener) context);
-                                    for (SoalTebakGambar s:soalTebakGambarList){
-                                        //showpertanyaan(s.soal_ke);
-                                        show_jawaban(s.getSoal_ke());
-                                    }
+                                    rvSoal.setAdapter(tebakGambarAdapter);
+
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -119,47 +119,6 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 });
         queue.add(rec);
     }
-
-    public void show_jawaban(int soal_ke){
-
-        JsonObjectRequest rec1= new JsonObjectRequest
-                ("https://mikeztj.com/Jason/PHPTebakGambar/JawabanTebakGambar.php?id="+getKategoriExtra+"&soal="+soal_ke
-                        , null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        JSONArray listJawabans = null;
-                        try {
-                            listJawabans = response.getJSONArray("result");
-                            for (int j = 0; j < listJawabans.length(); j++) {
-                                try {
-                                    JSONObject obj = listJawabans.getJSONObject(j);
-                                    jawabanTebakGambarList.add(new JawabanTebakGambar(
-                                            obj.getInt("tebakID"),
-                                            obj.getInt("soal_ke"),
-                                            obj.getString("pilihan_jawaban")));
-                                } catch (JSONException e1) {
-                                    //Toast.makeText(context, e1.getMessage(), Toast.LENGTH_SHORT).show();
-                                    e1.printStackTrace();
-                                }
-                            }
-                            tebakGambarAdapter.setJawabanTebakGambars(jawabanTebakGambarList);
-                            rvSoal.setAdapter(tebakGambarAdapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(TebakGambarActivity.this);
-        requestQueue.add(rec1);
-    }
-
 
 
     @Override
@@ -177,10 +136,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
             }catch (Exception e){
                 e.printStackTrace();
             }
-//            if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
-//
-//                Toast.makeText(context, "Jawaban Benar", Toast.LENGTH_SHORT).show();
-//            }
+
     }
 
 }
