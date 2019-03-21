@@ -60,29 +60,25 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position);
-                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(),position);
             }
         });
         holder.jbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position);
-                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(),position);
             }
         });
         holder.jbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position);
-                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(),position);
             }
         });
         holder.jbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position);
-                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(),position);
             }
         });
 
