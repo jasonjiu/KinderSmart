@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -24,14 +25,7 @@ import java.util.List;
 public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.tgViewHolder> {
     public static Context                   context;
     private List<SoalTebakGambar>           soalTebakGambars;
-    private List<JawabanTebakGambar>        jawabanTebakGambars;
-    private List<JawabanTebakGambar>        tempJawaban;
-    private JawabanTebakAdapter             jawabanTebakAdapter;
     private OnImageClickListener            onImageClickListener;
-
-    public void setJawabanTebakGambars(List<JawabanTebakGambar> jawabanTebakGambars) {
-        this.jawabanTebakGambars = jawabanTebakGambars;
-    }
 
     public TebakGambarAdapter(Context context) {
         this.context = context;
@@ -55,27 +49,38 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     @Override
     public void onBindViewHolder(@NonNull final TebakGambarAdapter.tgViewHolder holder, final int position) {
         final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
-        final JawabanTebakGambar tebakGambar = jawabanTebakGambars.get(position);
 
-        tempJawaban = new ArrayList<>();
-        for (JawabanTebakGambar j:jawabanTebakGambars){
-            if(j.getSoal_ke()==soalTebakGambar.getSoal_ke()){
-                tempJawaban.add(j);
-            }
-        }
         Picasso.with(context).load(soalTebakGambar.getUrl_soal()).into(holder.soalTebak);
-        jawabanTebakAdapter = new JawabanTebakAdapter(tempJawaban, context, (OnImageClickListener) context);
 
-        holder.rvTebak.setLayoutManager(new GridLayoutManager(context, 2));
-        holder.rvTebak.setAdapter(jawabanTebakAdapter);
-        holder.next.setOnClickListener(new View.OnClickListener() {
+        holder.jbtn1.setText(soalTebakGambar.getPilihan_jawaban1());
+        holder.jbtn2.setText(soalTebakGambar.getPilihan_jawaban2());
+        holder.jbtn3.setText(soalTebakGambar.getPilihan_jawaban3());
+        holder.jbtn4.setText(soalTebakGambar.getPilihan_jawaban4());
+
+        holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick("",position);
-                Log.d("kunci", soalTebakGambar.getKunci_jawaban());
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(),position);
             }
         });
-
+        holder.jbtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(),position);
+            }
+        });
+        holder.jbtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(),position);
+            }
+        });
+        holder.jbtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(),position);
+            }
+        });
 
     }
 
@@ -91,17 +96,19 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
 
     public class tgViewHolder extends RecyclerView.ViewHolder {
-        public ImageView        soalTebak, sound, next;
-        public RecyclerView     rvTebak;
+        public ImageView        soalTebak, sound;
         public RelativeLayout   relativeLayout;
+        public Button           jbtn1, jbtn2, jbtn3, jbtn4;
+
         public tgViewHolder(View itemView) {
             super(itemView);
             soalTebak       = itemView.findViewById(R.id.ivSoalTebakGambar);
             sound           = itemView.findViewById(R.id.ivSoundTebakGambar);
-            next            = itemView.findViewById(R.id.nextIv);
-            rvTebak         = itemView.findViewById(R.id.rvJawabanTebak);
             relativeLayout  = itemView.findViewById(R.id.linear1);
-            rvTebak.setHasFixedSize(true);
+            jbtn1           = itemView.findViewById(R.id.btnJawabTebak1);
+            jbtn2           = itemView.findViewById(R.id.btnJawabTebak2);
+            jbtn3           = itemView.findViewById(R.id.btnJawabTebak3);
+            jbtn4           = itemView.findViewById(R.id.btnJawabTebak4);
 
         }
     }
