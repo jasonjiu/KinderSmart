@@ -20,4 +20,8 @@
     <string name="pengurangan">Pengurangan</string>
     <string name="perkalian">Perkalian</string>
     <string name="pembagian">Pembagian</string>
+
+    //Recent Score
+    <string name="score_tinggi">Selamat Score Anda</string>
+    <string name="score_rendah">Sayang Sekali Jawaban Anda Tidak Ada Yang Benar</string>
 </resources>

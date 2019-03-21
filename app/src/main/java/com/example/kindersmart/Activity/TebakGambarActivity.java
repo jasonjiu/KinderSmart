@@ -16,11 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kindersmart.Activity.Adapter.JawabanTebakAdapter;
 import com.example.kindersmart.Activity.Adapter.TebakGambarAdapter;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.CustomLinearLayoutManager;
-import com.example.kindersmart.Activity.Model.JawabanTebakGambar;
 import com.example.kindersmart.Activity.Model.SoalTebakGambar;
 import com.example.kindersmart.R;
 
@@ -32,14 +30,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TebakGambarActivity extends AppCompatActivity implements OnImageClickListener {
-    public String                      getKategoriExtra, getNamaTebakan;
-    public RecyclerView                rvSoal;
-    public Context                     context;
-    public RequestQueue                queue;
-    public TebakGambarAdapter          tebakGambarAdapter;
-    public List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
-    public CustomLinearLayoutManager   lm;
-    public int                         score = 0;
+    private String                      getKategoriExtra, getNamaTebakan;
+    private RecyclerView                rvSoal;
+    private Context                     context;
+    private RequestQueue                queue;
+    private TebakGambarAdapter          tebakGambarAdapter;
+    private List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
+    private CustomLinearLayoutManager   lm;
+    private int                         score = 0;
 
 
     @Override
@@ -127,26 +125,26 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
 
     @Override
     public void onImageClick(String data, int position) {
-            rvSoal.getLayoutManager().scrollToPosition(position+1);
-            if (position == tebakGambarAdapter.getItemCount()-1){
-                Intent intent = new Intent(context, HelpActivity.class);
-                startActivity(intent);
-            }
-            Log.d("wow", position+"");
-
-            try {
-                Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
-                Log.d("jawaban", data);
-                if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
-                    score += 10;
-                    Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
-                }
-
-            }catch (Exception e){
-                e.printStackTrace();
+        try {
+            Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
+            Log.d("jawaban", data);
+            if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
+                score += 10;
+                Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
             }
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        Log.d("wow", position+"");
+        rvSoal.getLayoutManager().scrollToPosition(position+1);
         Log.d("score", score+"");
+        if (position == tebakGambarAdapter.getItemCount()-1){
+            Intent intent = new Intent(context, RecentScoreActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("score", score);
+            startActivity(intent);
+        }
 
     }
 

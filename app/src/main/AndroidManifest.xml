@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MatematikaActivity"></activity>
+        <activity android:name=".Activity.MatematikaActivity" />
         <activity android:name=".Activity.PengenalanActivity" />
         <activity android:name=".Activity.TebakGambarActivity" />
         <activity android:name=".Activity.HighscoreActivity" />
@@ -30,6 +30,7 @@
             android:name=".Activity.KategoriActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.HelpActivity" />
+        <activity android:name=".Activity.RecentScoreActivity"></activity>
     </application>
 
 </manifest>
