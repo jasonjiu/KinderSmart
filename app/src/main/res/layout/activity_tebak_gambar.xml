@@ -25,7 +25,6 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/cv_tebak"
         >
-
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

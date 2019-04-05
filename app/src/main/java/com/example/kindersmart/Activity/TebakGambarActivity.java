@@ -39,7 +39,6 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     private CustomLinearLayoutManager   lm;
     private int                         score = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +47,12 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         Intent intent       = getIntent();
         getKategoriExtra    = intent.getStringExtra("Kategori_Tebak");
         getNamaTebakan      = intent.getStringExtra("tebak");
-
-
-
-        rvSoal = findViewById(R.id.rvSoalTebak);
-        lm = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
+        queue               = Volley.newRequestQueue(context);
+        rvSoal              = findViewById(R.id.rvSoalTebak);
+        lm                  = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
         lm.setScrollEnabled(false);
         rvSoal.setLayoutManager(lm);
-        queue= Volley.newRequestQueue(context);
+
         show_soal();
         toolbar();
 
@@ -91,14 +88,15 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                             final JSONObject obj = listSoal.getJSONObject(i);
 
                                             soalTebakGambarList.add(new SoalTebakGambar(
-                                                    obj.getInt("tebakID"),
+                                                    obj.getInt("kategoriID"),
                                                     obj.getInt("soal_ke"),
                                                     obj.getString("soal_picture"),
                                                     obj.getString("kunci_jawaban"),
                                                     obj.getString("pilihan_jawaban_1"),
                                                     obj.getString("pilihan_jawaban_2"),
                                                     obj.getString("pilihan_jawaban_3"),
-                                                    obj.getString("pilihan_jawaban_4")));
+                                                    obj.getString("pilihan_jawaban_4"),
+                                                    obj.getString("soal")));
                                         } catch (JSONException e1) {
                                             e1.printStackTrace();
                                         }
@@ -122,6 +120,10 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         queue.add(rec);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     @Override
     public void onImageClick(String data, int position) {
@@ -136,6 +138,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         }catch (Exception e){
             e.printStackTrace();
         }
+
         Log.d("wow", position+"");
         rvSoal.getLayoutManager().scrollToPosition(position+1);
         Log.d("score", score+"");

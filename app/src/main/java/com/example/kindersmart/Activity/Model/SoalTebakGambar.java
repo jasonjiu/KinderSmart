@@ -9,9 +9,10 @@ public class SoalTebakGambar {
     private String  pilihan_jawaban2;
     private String  pilihan_jawaban3;
     private String  pilihan_jawaban4;
+    private String  soal;
 
     public SoalTebakGambar(int idSoal, int soal_ke, String url_soal, String kunci_jawaban,
-                           String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4) {
+                           String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4, String soal) {
         this.idSoal             = idSoal;
         this.soal_ke            = soal_ke;
         this.url_soal           = url_soal;
@@ -20,6 +21,15 @@ public class SoalTebakGambar {
         this.pilihan_jawaban2   = pilihan_jawaban2;
         this.pilihan_jawaban3   = pilihan_jawaban3;
         this.pilihan_jawaban4   = pilihan_jawaban4;
+        this.soal               = soal;
+    }
+
+    public String getSoal() {
+        return soal;
+    }
+
+    public void setSoal(String soal) {
+        this.soal = soal;
     }
 
     public String getPilihan_jawaban1() {
