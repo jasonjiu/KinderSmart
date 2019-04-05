@@ -97,7 +97,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Kenal", "KenalHewan");
+                intent.putExtra("Kategori_Kenal", "9");
+                intent.putExtra("kenal", "Mengenal Hewan");
                 startActivity(intent);
             }
         });
@@ -109,7 +110,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Kenal", "KenalAngka");
+                intent.putExtra("Kategori_Kenal", "10");
+                intent.putExtra("kenal", "Mengenal Angka");
                 startActivity(intent);
             }
         });
@@ -121,7 +123,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Kenal", "KenalBentuk");
+                intent.putExtra("Kategori_Kenal", "11");
+                intent.putExtra("kenal", "Mengenal Bentuk");
                 startActivity(intent);
             }
         });
@@ -133,7 +136,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Kenal", "KenalWarna");
+                intent.putExtra("Kategori_Kenal", "12");
+                intent.putExtra("kenal", "Mengenal Warna");
                 startActivity(intent);
             }
         });
@@ -143,9 +147,10 @@ public class KategoriActivity extends AppCompatActivity {
         penjumlahall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, MatematikaActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Mat", "Penjumlahan");
+                intent.putExtra("Kategori_Tebak", "5");
+                intent.putExtra("tebak","Penjumlahan");
                 startActivity(intent);
             }
         });
@@ -155,9 +160,10 @@ public class KategoriActivity extends AppCompatActivity {
         penguranganll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, MatematikaActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Mat", "Pengurangan");
+                intent.putExtra("Kategori_Tebak", "6");
+                intent.putExtra("tebak","Pengurangan");
                 startActivity(intent);
             }
         });
@@ -167,9 +173,10 @@ public class KategoriActivity extends AppCompatActivity {
         perkalianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, MatematikaActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Mat", "Perkalian");
+                intent.putExtra("Kategori_Tebak", "7");
+                intent.putExtra("tebak","Perkalian");
                 startActivity(intent);
             }
         });
@@ -179,16 +186,17 @@ public class KategoriActivity extends AppCompatActivity {
         pembagianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, MatematikaActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("Kategori_Mat", "Pembagian");
+                intent.putExtra("Kategori_Tebak", "8");
+                intent.putExtra("tebak","Pembagian");
                 startActivity(intent);
             }
         });
     }
 
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.xuemiaojiao);
+        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.solo);
         bgMusic.start();
         bgMusic.setLooping(true);
     }
@@ -213,7 +221,6 @@ public class KategoriActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     @Override

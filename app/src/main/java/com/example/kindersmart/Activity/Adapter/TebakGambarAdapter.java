@@ -2,28 +2,24 @@ package com.example.kindersmart.Activity.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.example.kindersmart.Activity.Model.JawabanTebakGambar;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.SoalTebakGambar;
-import com.example.kindersmart.Activity.TebakGambarActivity;
 import com.example.kindersmart.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.tgViewHolder> {
-    public static Context                   context;
+    private Context                         context;
     private List<SoalTebakGambar>           soalTebakGambars;
     private OnImageClickListener            onImageClickListener;
 
@@ -51,7 +47,7 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
 
         Picasso.with(context).load(soalTebakGambar.getUrl_soal()).into(holder.soalTebak);
-
+        holder.tvSoal.setText(soalTebakGambar.getSoal());
         holder.jbtn1.setText(soalTebakGambar.getPilihan_jawaban1());
         holder.jbtn2.setText(soalTebakGambar.getPilihan_jawaban2());
         holder.jbtn3.setText(soalTebakGambar.getPilihan_jawaban3());
@@ -60,25 +56,25 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(),position);
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(), position);
             }
         });
         holder.jbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(),position);
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(), position);
             }
         });
         holder.jbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(),position);
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(), position);
             }
         });
         holder.jbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(),position);
+                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(), position);
             }
         });
 
@@ -96,15 +92,15 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
 
     public class tgViewHolder extends RecyclerView.ViewHolder {
-        public ImageView        soalTebak, sound;
-        public RelativeLayout   relativeLayout;
-        public Button           jbtn1, jbtn2, jbtn3, jbtn4;
+        private ImageView        soalTebak, sound;
+        private Button           jbtn1, jbtn2, jbtn3, jbtn4;
+        private TextView         tvSoal;
 
         public tgViewHolder(View itemView) {
             super(itemView);
             soalTebak       = itemView.findViewById(R.id.ivSoalTebakGambar);
+            tvSoal          = itemView.findViewById(R.id.soal);
             sound           = itemView.findViewById(R.id.ivSoundTebakGambar);
-            relativeLayout  = itemView.findViewById(R.id.linear1);
             jbtn1           = itemView.findViewById(R.id.btnJawabTebak1);
             jbtn2           = itemView.findViewById(R.id.btnJawabTebak2);
             jbtn3           = itemView.findViewById(R.id.btnJawabTebak3);
