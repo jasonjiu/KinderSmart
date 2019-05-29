@@ -25,6 +25,7 @@ public class MenuActivity extends AppCompatActivity {
         startGame();
         helpGame();
         exitGame();
+        highScore();
     }
 
 

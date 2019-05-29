@@ -127,12 +127,16 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
 
     @Override
     public void onBackPressed() {
-        if ( kenalGambarAdapter.kenalSound.isPlaying()){
-            kenalGambarAdapter.kenalSound.stop();
-            if (isFinishing()){
+        try {
+            if ( kenalGambarAdapter.kenalSound.isPlaying()){
                 kenalGambarAdapter.kenalSound.stop();
-                kenalGambarAdapter.kenalSound.release();
+                if (isFinishing()){
+                    kenalGambarAdapter.kenalSound.stop();
+                    kenalGambarAdapter.kenalSound.release();
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         super.onBackPressed();
 
@@ -140,13 +144,18 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
 
     @Override
     protected void onPause() {
-        if ( kenalGambarAdapter.kenalSound.isPlaying()){
-            kenalGambarAdapter.kenalSound.stop();
-            if (isFinishing()){
+        try {
+            if ( kenalGambarAdapter.kenalSound.isPlaying()){
                 kenalGambarAdapter.kenalSound.stop();
-                kenalGambarAdapter.kenalSound.release();
+                if (isFinishing()){
+                    kenalGambarAdapter.kenalSound.stop();
+                    kenalGambarAdapter.kenalSound.release();
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
         super.onPause();
     }
 
@@ -156,7 +165,9 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
             kenalGambarAdapter.isPlaying = "true";
             kenalGambarAdapter.notifyDataSetChanged();
             Log.d("playing", kenalGambarAdapter.isPlaying+"");
-        }catch (Exception e){}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         super.onResume();
 
     }
