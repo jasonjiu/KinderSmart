@@ -80,7 +80,6 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
                     e.printStackTrace();
                 }
 
-
                 if (kenalSound.isPlaying()){
                     Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                    holder.sound.setEnabled(false);
@@ -100,7 +99,11 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
             @Override
             public void onClick(View v) {
                 holder.sound.setEnabled(true);
-                kenalSound.stop();
+                try {
+                    kenalSound.stop();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 onImageClickListener.onImageClick("back", position);
             }
         });
@@ -109,7 +112,11 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
             @Override
             public void onClick(View v) {
                 holder.sound.setEnabled(true);
-                kenalSound.stop();
+                try {
+                    kenalSound.stop();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 onImageClickListener.onImageClick("next", position);
 
             }

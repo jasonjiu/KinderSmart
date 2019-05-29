@@ -56,7 +56,6 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         show_soal();
         toolbar();
 
-        Log.d("skore", score+"");
     }
 
     public void toolbar(){
@@ -142,12 +141,64 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         Log.d("wow", position+"");
         rvSoal.getLayoutManager().scrollToPosition(position+1);
         Log.d("score", score+"");
-        if (position == tebakGambarAdapter.getItemCount()-1){
-            Intent intent = new Intent(context, RecentScoreActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("score", score);
-            startActivity(intent);
-        }
+        Log.d("getextra", getKategoriExtra);
+        
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("1") ) {
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hewan", score);
+                intent.putExtra("kategori", "hewan");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("2")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("buah", score);
+                intent.putExtra("kategori", "buah");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("3")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("organ", score);
+                intent.putExtra("kategori", "organ");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("4")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("warna", score);
+                intent.putExtra("kategori", "warna");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("5")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("penjumlahan", score);
+                intent.putExtra("kategori", "penjumlahan");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("6")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("pengurangan", score);
+                intent.putExtra("kategori", "pengurangan");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("7")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hitungGambar", score);
+                intent.putExtra("kategori", "hitungGambar");
+                startActivity(intent);
+            }
+            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("8")){
+                Intent intent = new Intent(context, RecentScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("tebakAngka", score);
+                intent.putExtra("kategori", "tebakAngka");
+                startActivity(intent);
+            }
 
     }
 

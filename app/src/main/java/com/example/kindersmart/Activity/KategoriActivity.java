@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.kindersmart.Activity.Model.Score;
+import com.example.kindersmart.Activity.Model.UserLocalStore;
 import com.example.kindersmart.R;
 
 public class KategoriActivity extends AppCompatActivity {
@@ -18,11 +21,20 @@ public class KategoriActivity extends AppCompatActivity {
 
     private ImageView       ivBack;
     private MediaPlayer     bgMusic;
+    private Score           currScore;
+    private UserLocalStore userLocalStore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategory);
+        userLocalStore = new UserLocalStore(this);
+        currScore = userLocalStore.getUserScore();
+        Log.d("skornyahewan", currScore.tebakHewanScore+"");
+        Log.d("skornyabuah", currScore.tebakBuahScore+"");
+        Log.d("skornyaorgan", currScore.tebakOrganScore+"");
+        Log.d("skornyawarna", currScore.tebakWarnaScore+"");
         setTebakhewanll();
         setTebakangkall();
         setTebakbentukll();
