@@ -165,7 +165,9 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
             kenalGambarAdapter.isPlaying = "true";
             kenalGambarAdapter.notifyDataSetChanged();
             Log.d("playing", kenalGambarAdapter.isPlaying+"");
-        }catch (Exception e){}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         super.onResume();
 
     }

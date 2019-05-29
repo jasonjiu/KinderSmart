@@ -24,4 +24,14 @@
     //Recent Score
     <string name="score_tinggi">Selamat Score Anda</string>
     <string name="score_rendah">Sayang Sekali Jawaban Anda Tidak Ada Yang Benar</string>
+    <string name="high_score_tebak_hewan">High Score Tebak Hewan</string>
+    <string name="high_score_tebak_buah">High Score Tebak Buah</string>
+    <string name="nilai_tertinggi_tebak_hewan">Nilai Tertinggi Tebak Hewan</string>
+    <string name="nilai_tertinggi_tebak_buah">Nilai Tertinggi Tebak Buah</string>
+    <string name="nilai_tertinggi_tebak_organ">Nilai Tertinggi Tebak Organ</string>
+    <string name="nilai_tertinggi_tebak_warna">Nilai Tertinggi Tebak Warna</string>
+    <string name="nilai_tertinggi_penjumlahan">Nilai Tertinggi Penjumlahan</string>
+    <string name="nilai_tertinggi_pengurangan">Nilai Tertinggi Pengurangan</string>
+    <string name="nilai_tertinggi_hitung_gambar">Nilai Tertinggi Hitung Gambar</string>
+    <string name="nilai_tertinggi_tebak_angka">Nilai Tertinggi Tebak Angka</string>
 </resources>
