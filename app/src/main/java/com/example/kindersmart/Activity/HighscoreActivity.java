@@ -39,7 +39,7 @@ public class HighscoreActivity extends AppCompatActivity {
         highScore = userLocalStore.getUserScore();
         init();
         toolbar();
-        setScore();
+
         setIcon();
     }
 
@@ -61,6 +61,16 @@ public class HighscoreActivity extends AppCompatActivity {
         tvPengurangan   = findViewById(R.id.tvHsPengurangan);
         tvHitungGambar  = findViewById(R.id.tvHsHitungGambar);
         tvTebakAngka    = findViewById(R.id.tvHsTebakAngka);
+
+        tvHewan.setText(highScore.tebakHewanScore+"");
+        tvBuah.setText(highScore.tebakBuahScore+"");
+        tvOrgan.setText(highScore.tebakOrganScore+"");
+        tvWarna.setText(highScore.tebakWarnaScore+"");
+        tvPenjumlahan.setText(highScore.penjumlahanScore+"");
+        tvPengurangan.setText(highScore.penguranganScore+"");
+        tvHitungGambar.setText(highScore.hitungGambarScore+"");
+        tvTebakAngka.setText(highScore.tebakAngkaScore+"");
+
     }
 
     public void toolbar(){
@@ -75,16 +85,6 @@ public class HighscoreActivity extends AppCompatActivity {
         });
     }
 
-    public void setScore(){
-        tvHewan.setText(highScore.tebakHewanScore);
-        tvBuah.setText(highScore.tebakBuahScore);
-        tvOrgan.setText(highScore.tebakOrganScore);
-        tvWarna.setText(highScore.tebakWarnaScore);
-        tvPenjumlahan.setText(highScore.penjumlahanScore);
-        tvPengurangan.setText(highScore.penguranganScore);
-        tvHitungGambar.setText(highScore.hitungGambarScore);
-        tvTebakAngka.setText(highScore.tebakAngkaScore);
-    }
 
     public void setIcon(){
 
