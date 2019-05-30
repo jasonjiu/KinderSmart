@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import java.util.List;
 
-public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.kgViewHolder> {
+public class MengenalAdapter extends RecyclerView.Adapter<MengenalAdapter.kgViewHolder> {
     private Context                 context;
     private OnImageClickListener    onImageClickListener;
     private List<Mengenal>          mengenalList;
@@ -35,19 +34,19 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
         this.mengenalList = mengenalList;
     }
 
-    public KenalGambarAdapter(Context context) {
-        this.context                = context;
+    public MengenalAdapter(Context context) {
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public KenalGambarAdapter.kgViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MengenalAdapter.kgViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cv_kenal, parent, false);
         return new kgViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final KenalGambarAdapter.kgViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MengenalAdapter.kgViewHolder holder, final int position) {
         final Mengenal mengenal = mengenalList.get(position);
         Picasso.with(context).load(mengenal.getGambarKenal()).into(holder.ivKenal);
         holder.tvKenal.setText(mengenal.getNamaKenal());

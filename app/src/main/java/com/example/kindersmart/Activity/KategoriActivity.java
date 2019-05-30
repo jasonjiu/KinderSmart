@@ -55,7 +55,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakhewanll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "1");
                 intent.putExtra("tebak","Tebak Hewan");
@@ -68,7 +68,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakangkall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "2");
                 intent.putExtra("tebak", "Tebak Angka");
@@ -81,7 +81,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakbentukll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "3");
                 intent.putExtra("tebak", "Tebak Bentuk");
@@ -94,7 +94,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakwarnall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "4");
                 intent.putExtra("tebak", "Tebak Warna");
@@ -159,7 +159,7 @@ public class KategoriActivity extends AppCompatActivity {
         penjumlahall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "5");
                 intent.putExtra("tebak","Penjumlahan");
@@ -172,7 +172,7 @@ public class KategoriActivity extends AppCompatActivity {
         penguranganll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "6");
                 intent.putExtra("tebak","Pengurangan");
@@ -185,7 +185,7 @@ public class KategoriActivity extends AppCompatActivity {
         perkalianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "7");
                 intent.putExtra("tebak","Perkalian");
@@ -198,7 +198,7 @@ public class KategoriActivity extends AppCompatActivity {
         pembagianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
+                Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "8");
                 intent.putExtra("tebak","Pembagian");

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MatematikaActivity" />
         <activity android:name=".Activity.PengenalanActivity" />
-        <activity android:name=".Activity.TebakGambarActivity" />
+        <activity android:name=".Activity.QuizActivity" />
         <activity android:name=".Activity.HighscoreActivity" />
         <activity
             android:name=".Activity.MenuActivity"

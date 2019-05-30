@@ -8,27 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
-import com.example.kindersmart.Activity.Model.SoalTebakGambar;
+import com.example.kindersmart.Activity.Model.SoalQuiz;
 import com.example.kindersmart.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.tgViewHolder> {
+public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> {
     private Context                         context;
-    private List<SoalTebakGambar>           soalTebakGambars;
+    private List<SoalQuiz> soalQuizs;
     private OnImageClickListener            onImageClickListener;
 
-    public TebakGambarAdapter(Context context) {
+    public QuizAdapter(Context context) {
         this.context = context;
     }
 
-    public void setSoalTebakGambars(List<SoalTebakGambar> soalTebakGambars) {
-        this.soalTebakGambars = soalTebakGambars;
+    public void setSoalQuizs(List<SoalQuiz> soalQuizs) {
+        this.soalQuizs = soalQuizs;
     }
 
     public void setTebakGambarAdapter(OnImageClickListener onImageClickListener) {
@@ -37,44 +36,44 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
     @NonNull
     @Override
-    public TebakGambarAdapter.tgViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public QuizAdapter.tgViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cv_tebak, parent, false);
         return new tgViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final TebakGambarAdapter.tgViewHolder holder, final int position) {
-        final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
+    public void onBindViewHolder(@NonNull final QuizAdapter.tgViewHolder holder, final int position) {
+        final SoalQuiz soalQuiz = soalQuizs.get(position);
 
-        Picasso.with(context).load(soalTebakGambar.getUrl_soal()).into(holder.soalTebak);
-        holder.tvSoal.setText(soalTebakGambar.getSoal());
-        holder.jbtn1.setText(soalTebakGambar.getPilihan_jawaban1());
-        holder.jbtn2.setText(soalTebakGambar.getPilihan_jawaban2());
-        holder.jbtn3.setText(soalTebakGambar.getPilihan_jawaban3());
-        holder.jbtn4.setText(soalTebakGambar.getPilihan_jawaban4());
+        Picasso.with(context).load(soalQuiz.getUrl_soal()).into(holder.soalTebak);
+        holder.tvSoal.setText(soalQuiz.getSoal());
+        holder.jbtn1.setText(soalQuiz.getPilihan_jawaban1());
+        holder.jbtn2.setText(soalQuiz.getPilihan_jawaban2());
+        holder.jbtn3.setText(soalQuiz.getPilihan_jawaban3());
+        holder.jbtn4.setText(soalQuiz.getPilihan_jawaban4());
 
         holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(), position);
+                onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban1(), position);
             }
         });
         holder.jbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(), position);
+                onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban2(), position);
             }
         });
         holder.jbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(), position);
+                onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban3(), position);
             }
         });
         holder.jbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(), position);
+                onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban4(), position);
             }
         });
 
@@ -82,7 +81,7 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
     @Override
     public int getItemCount() {
-        return soalTebakGambars.size();
+        return soalQuizs.size();
     }
 
     @Override

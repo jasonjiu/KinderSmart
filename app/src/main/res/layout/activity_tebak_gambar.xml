@@ -6,7 +6,7 @@
     android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.TebakGambarActivity">
+    tools:context=".Activity.QuizActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tbConfirmation"

@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.kindersmart.Activity.Adapter.TebakGambarAdapter;
+import com.example.kindersmart.Activity.Adapter.QuizAdapter;
 import com.example.kindersmart.Activity.Model.CustomLinearLayoutManager;
-import com.example.kindersmart.Activity.Model.SoalTebakGambar;
+import com.example.kindersmart.Activity.Model.SoalQuiz;
 import com.example.kindersmart.R;
 
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class MatematikaActivity extends AppCompatActivity {
     private RecyclerView                rvSoal;
     private Context                     context;
     private RequestQueue                queue;
-    private TebakGambarAdapter          tebakGambarAdapter;
-    private List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
+    private QuizAdapter quizAdapter;
+    private List<SoalQuiz> soalQuizList = new ArrayList<>();
     private CustomLinearLayoutManager   lm;
     private int                         score = 0;
     @Override
