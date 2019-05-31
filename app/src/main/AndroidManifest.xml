@@ -29,8 +29,9 @@
         <activity
             android:name=".Activity.KategoriActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.HelpActivity" />
+        <activity android:name=".Activity.VideoEdukasiActivity" />
         <activity android:name=".Activity.RecentScoreActivity"></activity>
+        <activity android:name=".Activity.YoutubePlayerActivity"></activity>
     </application>
 
 </manifest>

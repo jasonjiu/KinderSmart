@@ -82,6 +82,7 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
 
     @Override
     public int getItemCount() {
+
         return soalTebakGambars.size();
     }
 
