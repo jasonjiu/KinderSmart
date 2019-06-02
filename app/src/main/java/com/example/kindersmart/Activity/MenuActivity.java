@@ -1,11 +1,15 @@
 package com.example.kindersmart.Activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.kindersmart.R;
@@ -18,6 +22,8 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_menu);
         context = getApplicationContext();
         startGame();
@@ -32,7 +38,9 @@ public class MenuActivity extends AppCompatActivity {
         startbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, KategoriActivity.class);
+                Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("loading", "start");
                 startActivity(intent);
                 }
         });
@@ -43,7 +51,9 @@ public class MenuActivity extends AppCompatActivity {
         helpbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, VideoEdukasiActivity.class);
+                Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("loading", "video");
                 startActivity(intent);
             }
         });
@@ -54,7 +64,9 @@ public class MenuActivity extends AppCompatActivity {
         highscoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, HighscoreActivity.class);
+                Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("loading", "highscore");
                 startActivity(intent);
             }
         });
@@ -76,21 +88,46 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
+    public void exitDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Exit Application?");
+        alertDialogBuilder
+                .setMessage("Click yes to exit!")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                pauseBackgroundMusic();
+                                moveTaskToBack(true);
+                                android.os.Process.killProcess(android.os.Process.myPid());
+                                System.exit(1);
+                            }
+                        })
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     public void exitGame(){
         exitbtn = findViewById(R.id.ibExit);
         exitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pauseBackgroundMusic();
-                finish();
+                exitDialog();
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        pauseBackgroundMusic();
-        super.onBackPressed();
+
     }
 
     @Override
