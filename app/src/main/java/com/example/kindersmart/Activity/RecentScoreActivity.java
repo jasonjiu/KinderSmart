@@ -17,6 +17,7 @@ import com.example.kindersmart.R;
 public class RecentScoreActivity extends AppCompatActivity {
     private TextView    nilaiScore;
     private TextView    tekan;
+    private TextView    back2Menu;
     private ImageView   ivRecentScore;
     private int         getScoreTebakHewan;
     private int         getScoreTebakBuah;
@@ -35,6 +36,7 @@ public class RecentScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recent_score);
         init();
         imageAnimation();
+        setBack2Menu();
 
         try {
             Intent intent       = getIntent();
@@ -201,10 +203,11 @@ public class RecentScoreActivity extends AppCompatActivity {
         nilaiScore       = findViewById(R.id.tvNilaiScore);
         ivRecentScore    = findViewById(R.id.ivRecentScore);
         tekan            = findViewById(R.id.tvTekan);
+        back2Menu        = findViewById(R.id.tvMenu);
     }
 
     public void imageAnimation(){
-        YoYo.with(Techniques.Swing)
+        YoYo.with(Techniques.RubberBand)
                 .duration(700)
                 .repeat(5)
                 .playOn(tekan);
@@ -231,6 +234,7 @@ public class RecentScoreActivity extends AppCompatActivity {
                                 ivRecentScore.setVisibility(View.GONE);
                                 tekan.setVisibility(View.GONE);
                                 nilaiScore.setVisibility(View.VISIBLE);
+                                back2Menu.setVisibility(View.VISIBLE);
                             }
                         }, 1000);
                     }
@@ -240,4 +244,18 @@ public class RecentScoreActivity extends AppCompatActivity {
         });
     }
 
+    public void setBack2Menu(){
+        back2Menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecentScoreActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
