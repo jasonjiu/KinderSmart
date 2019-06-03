@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/bg_red"
     android:layout_height="match_parent"
     tools:context=".Activity.MenuActivity">
 
@@ -15,11 +17,11 @@
 
         <ImageView
             android:id="@+id/kindersmarticon"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_gravity="center"
+            android:src="@drawable/kindersmart_yellow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -30,39 +32,47 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:background="@drawable/btn_transparent"
             android:id="@+id/ibStartGame"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:textColor="@color/yellow"
             android:layout_marginBottom="10dp"
             android:text="@string/start"
             />
 
         <Button
+            android:background="@drawable/btn_transparent"
             android:id="@+id/ibTutorial"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
+            android:textColor="@color/yellow"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/help"/>
 
         <Button
+            android:background="@drawable/btn_transparent"
             android:id="@+id/highScore"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:textColor="@color/yellow"
             android:layout_marginBottom="10dp"
             android:text="@string/high_score"
             />
 
         <Button
+            android:background="@drawable/btn_transparent_red"
             android:id="@+id/ibExit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
+            android:textColor="@color/red"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/exit"/>

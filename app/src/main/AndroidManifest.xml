@@ -13,23 +13,22 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/SplashTheme">
-        <activity android:name=".Activity.LoadingScreen">
-
-        </activity>
-        <activity android:name=".Activity.MatematikaActivity" />
-        <activity android:name=".Activity.PengenalanActivity" />
-        <activity android:name=".Activity.TebakGambarActivity" />
-        <activity android:name=".Activity.HighscoreActivity" />
-        <activity
-            android:name=".Activity.MenuActivity">
+        <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.KategoriActivity"/>
+        <activity android:name=".Activity.LoadingScreen"></activity>
+        <activity android:name=".Activity.MatematikaActivity" />
+        <activity android:name=".Activity.PengenalanActivity" />
+        <activity android:name=".Activity.TebakGambarActivity" />
+        <activity android:name=".Activity.HighscoreActivity" />
+        <activity android:name=".Activity.MenuActivity">
+
+        </activity>
+        <activity android:name=".Activity.KategoriActivity" />
         <activity android:name=".Activity.VideoEdukasiActivity" />
         <activity android:name=".Activity.RecentScoreActivity" />
         <activity android:name=".Activity.YoutubePlayerActivity" />
