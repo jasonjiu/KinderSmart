@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">KinderSmart</string>
     <string name="start">Mulai Bermain</string>
-    <string name="help">Paduan Bermain</string>
+    <string name="help">Video Edukasi</string>
     <string name="exit">Keluar</string>
     <string name="high_score">Skor Tertinggi</string>
     <string name="tebak_gambar">Tebak Gambar</string>
@@ -11,15 +11,17 @@
 
     //kategori
     <string name="hewan">Hewan</string>
-    <string name="angka">Angka</string>
-    <string name="bentuk">Bentuk</string>
+    <string name="buah">Buah</string>
+    <string name="organ">Organ Tubuh</string>
     <string name="warna">Warna</string>
 
     //berhitung
     <string name="penjumlahan">Penjumlahan</string>
     <string name="pengurangan">Pengurangan</string>
-    <string name="perkalian">Perkalian</string>
-    <string name="pembagian">Pembagian</string>
+    <string name="hitungGambar">Hitung Gambar</string>
+    <string name="tebakAngka">Tebak Angka</string>
+
+
 
     //Recent Score
     <string name="score_tinggi">Selamat Score Anda</string>
@@ -37,4 +39,6 @@
     <string name="_0">0</string>
     <string name="tekan_telornya">Tekan Telornya</string>
     <string name="kembali_ke_menu_utama"><u>Kembali Ke Menu Utama</u></string>
+    <string name="angka">Angka</string>
+    <string name="bentuk">Organ</string>
 </resources>
