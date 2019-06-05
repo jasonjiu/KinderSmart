@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.LoadingScreen"></activity>
-        <activity android:name=".Activity.MatematikaActivity" />
         <activity android:name=".Activity.PengenalanActivity" />
         <activity android:name=".Activity.TebakGambarActivity" />
         <activity android:name=".Activity.HighscoreActivity" />
