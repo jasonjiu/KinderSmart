@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chalkboard"
+    android:background="@color/green"
     tools:context=".Activity.KategoriActivity">
 
 
     <android.support.v4.widget.NestedScrollView
+        android:background="@drawable/chalkboard_border"
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
