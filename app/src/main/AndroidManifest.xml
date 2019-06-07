@@ -13,24 +13,33 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/SplashTheme">
-        <activity android:name=".Activity.SplashScreenActivity">
+        <activity android:name=".Activity.SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.LoadingScreen"></activity>
-        <activity android:name=".Activity.PengenalanActivity" />
-        <activity android:name=".Activity.TebakGambarActivity" />
-        <activity android:name=".Activity.HighscoreActivity" />
-        <activity android:name=".Activity.MenuActivity">
-
+        <activity android:name=".Activity.LoadingScreen"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.PengenalanActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.TebakGambarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.HighscoreActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.MenuActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Activity.KategoriActivity" />
-        <activity android:name=".Activity.VideoEdukasiActivity" />
-        <activity android:name=".Activity.RecentScoreActivity" />
-        <activity android:name=".Activity.YoutubePlayerActivity" />
+        <activity android:name=".Activity.KategoriActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.VideoEdukasiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.RecentScoreActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.YoutubePlayerActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

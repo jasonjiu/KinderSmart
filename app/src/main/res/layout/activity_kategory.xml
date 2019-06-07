@@ -29,7 +29,7 @@
             android:paddingBottom="8dp"
             android:layout_marginTop="20dp"
             android:text="@string/tebak_gambar"
-            android:textColor="@color/background"
+            android:textColor="@color/chalk"
             android:textSize="16dp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
         <LinearLayout
             android:id="@+id/llTebakHewan"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -60,8 +60,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hewan"/>
@@ -71,7 +72,7 @@
         <LinearLayout
             android:id="@+id/llTebakAngka"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -83,8 +84,8 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
-                android:textColor="@color/background"
-
+                android:textColor="@color/chalk"
+                android:textSize="12sp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +96,7 @@
         <LinearLayout
             android:id="@+id/llTebakBentuk"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -107,8 +108,9 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/organ"/>
@@ -118,7 +120,7 @@
        <LinearLayout
            android:id="@+id/llTebakWarna"
            android:orientation="vertical"
-           android:layout_width="80dp"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_weight="1">
 
@@ -130,8 +132,9 @@
                android:src="@drawable/ic_launcher_background" />
 
            <TextView
-               android:textColor="@color/background"
+               android:textColor="@color/chalk"
                android:layout_gravity="center"
+               android:textSize="12sp"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="@string/warna"/>
@@ -144,10 +147,10 @@
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/background" />
+            android:background="@color/chalk" />
 
         <TextView
-            android:textColor="@color/background"
+            android:textColor="@color/chalk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -171,7 +174,7 @@
         <LinearLayout
             android:id="@+id/llKenalHewan"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -183,8 +186,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hewan"/>
@@ -194,7 +198,7 @@
         <LinearLayout
             android:id="@+id/llKenalAngka"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -206,8 +210,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/buah"/>
@@ -217,7 +222,7 @@
         <LinearLayout
             android:id="@+id/llKenalBentuk"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -229,8 +234,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/organ"/>
@@ -240,7 +246,7 @@
         <LinearLayout
             android:id="@+id/llKenalWarna"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -252,8 +258,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/warna"/>
@@ -267,10 +274,10 @@
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/background" />
+            android:background="@color/chalk" />
 
         <TextView
-            android:textColor="@color/background"
+            android:textColor="@color/chalk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -294,7 +301,7 @@
         <LinearLayout
             android:id="@+id/llPenjumlahan"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -306,8 +313,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/penjumlahan"/>
@@ -317,7 +325,7 @@
         <LinearLayout
             android:id="@+id/llPengurangan"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -329,9 +337,11 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
+                android:textSize="12sp"
+
                 android:layout_height="wrap_content"
                 android:text="@string/pengurangan"/>
 
@@ -340,7 +350,7 @@
         <LinearLayout
             android:id="@+id/llPerkalian"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -352,9 +362,11 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
+                android:textSize="12sp"
+
                 android:layout_height="wrap_content"
                 android:text="@string/hitungGambar"/>
 
@@ -363,7 +375,7 @@
         <LinearLayout
             android:id="@+id/llPembagian"
             android:orientation="vertical"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -375,8 +387,9 @@
                 android:src="@drawable/ic_launcher_background"/>
 
             <TextView
-                android:textColor="@color/background"
+                android:textColor="@color/chalk"
                 android:layout_gravity="center"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tebakAngka"/>
@@ -388,17 +401,39 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp">
 
-            <ImageView
-                android:tint="@color/background"
-                android:id="@+id/ivBack"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+            <LinearLayout
+                android:id="@+id/linearBack2menu"
+                android:padding="10dp"
+                android:background="@drawable/transparent"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_arrow_back_black_24dp" />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back2menu"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/chalk"/>
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/back"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
 
         </RelativeLayout>
 
