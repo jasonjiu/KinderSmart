@@ -18,8 +18,7 @@ public class KategoriActivity extends AppCompatActivity {
     private LinearLayout    tebakhewanll, tebakangkall, tebakbentukll, tebakwarnall,
                             kenalhewanll, kenalangkall, kenalbentukll, kenalwarnall,
                             penjumlahall, penguranganll, perkalianll, pembagianll;
-
-    private ImageView       ivBack;
+    private LinearLayout    backLayout;
     private MediaPlayer     bgMusic;
     private Score           currScore;
     private UserLocalStore userLocalStore;
@@ -248,8 +247,8 @@ public class KategoriActivity extends AppCompatActivity {
 
 
     public void setIvBack(){
-        ivBack = findViewById(R.id.ivBack);
-        ivBack.setOnClickListener(new View.OnClickListener() {
+        backLayout = findViewById(R.id.linearBack2menu);
+        backLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pauseBackgroundMusic();

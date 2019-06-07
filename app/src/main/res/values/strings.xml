@@ -41,4 +41,7 @@
     <string name="kembali_ke_menu_utama"><u>Kembali Ke Menu Utama</u></string>
     <string name="angka">Angka</string>
     <string name="bentuk">Organ</string>
+    <string name="back2menu">Kembali Ke Menu ?</string>
+    <string name="confirm_exit">Apakah Anda Yakin Untuk Keluar ?</string>
+    <string name="keluar">Keluar</string>
 </resources>
