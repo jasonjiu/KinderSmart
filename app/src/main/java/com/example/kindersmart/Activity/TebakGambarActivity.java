@@ -1,7 +1,11 @@
 package com.example.kindersmart.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -38,6 +45,9 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     private List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
     private CustomLinearLayoutManager   lm;
     private int                         score = 0;
+    private TextView                    tvTb;
+    private ImageView                   ivTb;
+    private AlertDialog                 alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +91,50 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void toolbar(){
-        Toolbar mToolbar = findViewById(R.id.tbConfirmation);
-        mToolbar.setTitle(getNamaTebakan);
-        mToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+    public void exitDialog(int layout){
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View layoutView = getLayoutInflater().inflate(layout, null);
+        Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
+        Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
+        dialogBuilder.setView(layoutView);
+
+        alertDialog  = dialogBuilder.create();
+        alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        ivTb.setEnabled(true);
+
+        dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        dialogCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
+    }
+
+
+    public void toolbar(){
+        Toolbar mToolbar = findViewById(R.id.tbConfirmation);
+        tvTb             = mToolbar.findViewById(R.id.tvtbTitle);
+        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
+        tvTb.setText(getNamaTebakan);
+        ivTb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ivTb.setEnabled(false);
+                exitDialog(R.layout.dialog_exit);
+            }
+        });
+
     }
 
     public void show_soal(){
@@ -149,22 +193,28 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
 
     @Override
     public void onImageClick(String data, int position) {
+
+
+        Log.d("wow", position+"");
+
+        Log.d("score", score+"");
+        Log.d("getextra", getKategoriExtra);
+
         try {
             Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
             Log.d("jawaban", data);
             if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
                 score += 10;
-                Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
+                rvSoal.getLayoutManager().scrollToPosition(position+1);
+            }
+            else {
+                rvSoal.getLayoutManager().scrollToPosition(position+1);
             }
 
         }catch (Exception e){
             e.printStackTrace();
         }
-
-        Log.d("wow", position+"");
-        rvSoal.getLayoutManager().scrollToPosition(position+1);
-        Log.d("score", score+"");
-        Log.d("getextra", getKategoriExtra);
         
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("1") ) {
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -200,6 +250,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("penjumlahan", score);
                 intent.putExtra("kategori", "penjumlahan");
                 startActivity(intent);
+
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("6")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -221,6 +272,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("tebakAngka", score);
                 intent.putExtra("kategori", "tebakAngka");
                 startActivity(intent);
+
             }
 
     }

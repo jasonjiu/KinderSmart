@@ -13,7 +13,28 @@
         android:layout_width="match_parent"
         app:titleTextColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background">
+        android:foreground="@drawable/transparent"
+        android:background="@color/wood">
+
+        <TextView
+            android:textColor="@color/chalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Title"
+            android:textSize="17sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/tvtbTitle" />
+
+        <ImageView
+            android:id="@+id/ivtbExit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/exit"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"/>
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView

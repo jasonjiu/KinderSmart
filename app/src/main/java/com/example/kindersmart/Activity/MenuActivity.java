@@ -27,7 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         context = getApplicationContext();
         startGame();
-        helpGame();
+        videoEdukasi();
         exitGame();
         highScore();
 
@@ -62,6 +62,7 @@ public class MenuActivity extends AppCompatActivity {
         startbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startbtn.setEnabled(false);
                 Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "start");
@@ -70,11 +71,12 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
-    public void helpGame(){
+    public void videoEdukasi(){
         helpbtn = findViewById(R.id.ibTutorial);
         helpbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                helpbtn.setEnabled(false);
                 Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "video");
@@ -88,6 +90,7 @@ public class MenuActivity extends AppCompatActivity {
         highscoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                highscoreBtn.setEnabled(false);
                 Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "highscore");
@@ -119,11 +122,11 @@ public class MenuActivity extends AppCompatActivity {
         Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
         Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
         dialogBuilder.setView(layoutView);
-
         alertDialog  = dialogBuilder.create();
         alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
+        exitbtn.setEnabled(true);
 
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +142,6 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
-
             }
         });
 
@@ -150,6 +152,7 @@ public class MenuActivity extends AppCompatActivity {
         exitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                exitbtn.setEnabled(false);
                 exitDialog(R.layout.dialog_exit);
             }
         });
@@ -175,6 +178,10 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         playBackgroundMusic();
+        exitbtn.setEnabled(true);
+        startbtn.setEnabled(true);
+        helpbtn.setEnabled(true);
+        highscoreBtn.setEnabled(true);
         super.onResume();
     }
 

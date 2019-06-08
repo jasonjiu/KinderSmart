@@ -77,6 +77,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakhewanll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tebakangkall.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "1");
@@ -90,6 +91,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakangkall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tebakangkall.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "2");
@@ -103,6 +105,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakbentukll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tebakbentukll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "3");
@@ -116,6 +119,7 @@ public class KategoriActivity extends AppCompatActivity {
         tebakwarnall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tebakwarnall.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "4");
@@ -129,6 +133,7 @@ public class KategoriActivity extends AppCompatActivity {
         kenalhewanll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                kenalhewanll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "9");
@@ -142,6 +147,7 @@ public class KategoriActivity extends AppCompatActivity {
         kenalangkall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                kenalangkall.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "10");
@@ -155,6 +161,7 @@ public class KategoriActivity extends AppCompatActivity {
         kenalbentukll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                kenalbentukll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "11");
@@ -181,6 +188,7 @@ public class KategoriActivity extends AppCompatActivity {
         penjumlahall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                penjumlahall.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "5");
@@ -194,6 +202,7 @@ public class KategoriActivity extends AppCompatActivity {
         penguranganll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                penguranganll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "6");
@@ -207,6 +216,7 @@ public class KategoriActivity extends AppCompatActivity {
         perkalianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                perkalianll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "7");
@@ -220,6 +230,7 @@ public class KategoriActivity extends AppCompatActivity {
         pembagianll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pembagianll.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, TebakGambarActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "8");
@@ -251,6 +262,7 @@ public class KategoriActivity extends AppCompatActivity {
         backLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                backLayout.setClickable(false);
                 pauseBackgroundMusic();
                 finish();
             }
@@ -277,6 +289,19 @@ public class KategoriActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         playBackgroundMusic();
+        tebakhewanll.setClickable(true);
+        tebakangkall.setClickable(true);
+        tebakbentukll.setClickable(true);
+        tebakwarnall.setClickable(true);
+        kenalhewanll.setClickable(true);
+        kenalangkall.setClickable(true);
+        kenalbentukll.setClickable(true);
+        kenalwarnall.setClickable(true);
+        penjumlahall.setClickable(true);
+        penguranganll.setClickable(true);
+        perkalianll.setClickable(true);
+        pembagianll.setClickable(true);
+        backLayout.setClickable(true);
         super.onResume();
     }
 

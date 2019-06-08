@@ -231,7 +231,7 @@ public class RecentScoreActivity extends AppCompatActivity {
 
     public void imageAnimation(){
         YoYo.with(Techniques.RubberBand)
-                .duration(700)
+                .duration(1000)
                 .repeat(5)
                 .playOn(tekan);
 
