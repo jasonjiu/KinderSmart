@@ -67,6 +67,7 @@ public class MenuActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "start");
                 startActivity(intent);
+                finish();
                 }
         });
     }
@@ -81,6 +82,7 @@ public class MenuActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "video");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -95,6 +97,7 @@ public class MenuActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "highscore");
                 startActivity(intent);
+                finish();
             }
         });
     }

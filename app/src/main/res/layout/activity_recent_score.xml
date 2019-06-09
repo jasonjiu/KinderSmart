@@ -6,66 +6,177 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/yellow"
+    android:background="@color/green"
     tools:context="com.example.kindersmart.Activity.RecentScoreActivity">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:visibility="visible"
-            android:id="@+id/ivRecentScore"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/egg" />
-
-        <TextView
-            android:id="@+id/tvNilaiScore"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_alignLeft="@id/ivRecentScore"
-            android:layout_alignTop="@id/ivRecentScore"
-            android:layout_alignRight="@id/ivRecentScore"
-            android:layout_alignBottom="@id/ivRecentScore"
-            android:background="@drawable/eggshell"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="100"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:visibility="gone" />
-
-        <TextView
-            android:textColor="@color/bg_red"
-            android:visibility="visible"
-            android:id="@+id/tvTekan"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tbRecentScore"
+            android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
+            app:titleTextColor="@android:color/white"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/ivRecentScore"
-            android:gravity="center"
-            android:text="@string/tekan_telornya"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:foreground="@drawable/transparent"
+            android:background="@color/wood">
+
+            <TextView
+                android:textColor="@color/chalk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nilai Kamu"
+                android:textSize="17sp"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:id="@+id/tvtbTitle" />
+
+            <ImageView
+                android:id="@+id/ivtbExit"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/score"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"/>
+
+        </android.support.v7.widget.Toolbar>
 
         <TextView
-            android:visibility="gone"
-            android:id="@+id/tvMenu"
+            android:id="@+id/tvTekan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/tvNilaiScore"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="@drawable/roundbtn"
+            android:backgroundTint="@color/wood"
+            android:clickable="false"
+            android:layout_below="@+id/tbRecentScore"
+            android:layout_centerHorizontal="true"
+            android:foreground="@drawable/transparent"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/tekan_telornya"
+            android:textColor="@color/background"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_marginTop="80dp"
+            android:id="@+id/rl"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/tvTekan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/ivRecentScore"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/egg"
+                android:layout_centerInParent="true"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvNilaiScore"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:textColor="@color/background"
+                android:layout_alignLeft="@id/ivRecentScore"
+                android:layout_alignTop="@id/ivRecentScore"
+                android:layout_alignRight="@id/ivRecentScore"
+                android:layout_alignBottom="@id/ivRecentScore"
+                android:background="@drawable/eggshell"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="100"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnPlayAgain"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/rl"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="@string/kembali_ke_menu_utama"
-            android:textAllCaps="true"
+            android:text="@string/play_again"
+            android:textAllCaps="false"
+            android:textColor="@color/background"
+            android:background="@drawable/roundbtn"
+            android:foreground="@drawable/transparent"
+            android:backgroundTint="@color/wood"
             android:textSize="12sp"
             android:textStyle="bold" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnScore"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btnPlayAgain"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Lihat Nilai Tertinggi"
+            android:textAllCaps="false"
+            android:foreground="@drawable/transparent"
+            android:textColor="@color/background"
+            android:background="@drawable/roundbtn"
+            android:backgroundTint="@color/yellow"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnrcExit"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btnScore"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/menu"
+            android:textAllCaps="false"
+            android:foreground="@drawable/transparent"
+            android:textColor="@color/background"
+            android:background="@drawable/roundbtn"
+            android:backgroundTint="@color/bg_red"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/rcInfo"
+            android:visibility="visible"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/rc_info"
+            android:textColor="@color/background"
+            android:background="@drawable/transparent2"
+            android:textSize="12sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_marginBottom="20dp"/>
 
     </RelativeLayout>
 

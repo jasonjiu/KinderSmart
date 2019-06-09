@@ -108,6 +108,8 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(TebakGambarActivity.this, KategoriActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -222,6 +224,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("hewan", score);
                 intent.putExtra("kategori", "hewan");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("2")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -229,6 +232,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("buah", score);
                 intent.putExtra("kategori", "buah");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("3")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -236,6 +240,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("organ", score);
                 intent.putExtra("kategori", "organ");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("4")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -243,6 +248,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("warna", score);
                 intent.putExtra("kategori", "warna");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("5")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -250,7 +256,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("penjumlahan", score);
                 intent.putExtra("kategori", "penjumlahan");
                 startActivity(intent);
-
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("6")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -258,6 +264,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("pengurangan", score);
                 intent.putExtra("kategori", "pengurangan");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("7")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -265,6 +272,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("hitungGambar", score);
                 intent.putExtra("kategori", "hitungGambar");
                 startActivity(intent);
+                finish();
             }
             if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("8")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
@@ -272,7 +280,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 intent.putExtra("tebakAngka", score);
                 intent.putExtra("kategori", "tebakAngka");
                 startActivity(intent);
-
+                finish();
             }
 
     }

@@ -37,11 +37,14 @@
     <string name="nilai_tertinggi_hitung_gambar">Nilai Tertinggi Hitung Gambar</string>
     <string name="nilai_tertinggi_tebak_angka">Nilai Tertinggi Tebak Angka</string>
     <string name="_0">0</string>
-    <string name="tekan_telornya">Tekan Telornya</string>
-    <string name="kembali_ke_menu_utama"><u>Kembali Ke Menu Utama</u></string>
+    <string name="tekan_telornya">Pecahkan Telurnya Sekarang!</string>
+    <string name="play_again">Bermain Lagi</string>
     <string name="angka">Angka</string>
     <string name="bentuk">Organ</string>
     <string name="back2menu">Kembali Ke Menu ?</string>
     <string name="confirm_exit">Apakah Anda Yakin Untuk Keluar ?</string>
     <string name="keluar">Keluar</string>
+    <string name="rc_info">Silahkan Pecahkan Telurnya Untuk Melihat Nilai Yang Anda Peroleh
+        </string>
+    <string name="menu">Kembali Ke Menu</string>
 </resources>

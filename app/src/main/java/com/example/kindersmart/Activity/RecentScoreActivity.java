@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +18,11 @@ import com.example.kindersmart.R;
 public class RecentScoreActivity extends AppCompatActivity {
     private TextView    nilaiScore;
     private TextView    tekan;
-    private TextView    back2Menu;
+    private TextView    tvInfoScore;
     private ImageView   ivRecentScore;
+    private Button      btnPlayAgain;
+    private Button      btnHighScore;
+    private Button      btnMenu;
     private int         getScoreTebakHewan;
     private int         getScoreTebakBuah;
     private int         getScoreTebakOrgan;
@@ -36,24 +40,26 @@ public class RecentScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recent_score);
         init();
         imageAnimation();
-        setBack2Menu();
+        setOnClick();
 
         try {
-            Intent intent       = getIntent();
-            getScoreTebakHewan = intent.getIntExtra("hewan", 0);
-            getScoreTebakBuah = intent.getIntExtra("buah", 0);
-            getScoreTebakOrgan = intent.getIntExtra("organ", 0);
-            getScoreTebakWarna = intent.getIntExtra("warna", 0);
-            getScorePenjumlahan = intent.getIntExtra("penjumlahan", 0);
-            getScorePengurangan = intent.getIntExtra("pengurangan", 0);
-            getScoreHitungGambar = intent.getIntExtra("hitungGambar", 0);
-            getScoreTebakAngka = intent.getIntExtra("tebakAngka", 0);
-            getKategori = intent.getStringExtra("kategori");
-            Log.d("nialinya", String.valueOf(getScoreTebakHewan));
-            Log.d("nialinyabuah", String.valueOf(getScoreTebakBuah));
-            Log.d("kategorinya", getKategori);
-            userLocalStore = new UserLocalStore(this);
-            currScore = userLocalStore.getUserScore();
+            Intent intent           = getIntent();
+            getScoreTebakHewan      = intent.getIntExtra("hewan", 0);
+            getScoreTebakBuah       = intent.getIntExtra("buah", 0);
+            getScoreTebakOrgan      = intent.getIntExtra("organ", 0);
+            getScoreTebakWarna      = intent.getIntExtra("warna", 0);
+            getScorePenjumlahan     = intent.getIntExtra("penjumlahan", 0);
+            getScorePengurangan     = intent.getIntExtra("pengurangan", 0);
+            getScoreHitungGambar    = intent.getIntExtra("hitungGambar", 0);
+            getScoreTebakAngka      = intent.getIntExtra("tebakAngka", 0);
+            getKategori             = intent.getStringExtra("kategori");
+            userLocalStore          = new UserLocalStore(this);
+            currScore               = userLocalStore.getUserScore();
+
+//            Log.d("nialinya", String.valueOf(getScoreTebakHewan));
+//            Log.d("nialinyabuah", String.valueOf(getScoreTebakBuah));
+//            Log.d("kategorinya", getKategori);
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -194,8 +200,8 @@ public class RecentScoreActivity extends AppCompatActivity {
             }
         }
 
-        Log.d("tebakhewan",  currScore.tebakHewanScore+"");
-        Log.d("tebakwarna",  currScore.tebakWarnaScore+"");
+//        Log.d("tebakhewan",  currScore.tebakHewanScore+"");
+//        Log.d("tebakwarna",  currScore.tebakWarnaScore+"");
 
     }
 
@@ -226,15 +232,14 @@ public class RecentScoreActivity extends AppCompatActivity {
         nilaiScore       = findViewById(R.id.tvNilaiScore);
         ivRecentScore    = findViewById(R.id.ivRecentScore);
         tekan            = findViewById(R.id.tvTekan);
-        back2Menu        = findViewById(R.id.tvMenu);
+        btnPlayAgain     = findViewById(R.id.btnPlayAgain);
+        btnHighScore     = findViewById(R.id.btnScore);
+        btnMenu          = findViewById(R.id.btnrcExit);
+        tvInfoScore      = findViewById(R.id.rcInfo);
+
     }
 
     public void imageAnimation(){
-        YoYo.with(Techniques.RubberBand)
-                .duration(1000)
-                .repeat(5)
-                .playOn(tekan);
-
         ivRecentScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,8 +261,11 @@ public class RecentScoreActivity extends AppCompatActivity {
                             public void run() {
                                 ivRecentScore.setVisibility(View.GONE);
                                 tekan.setVisibility(View.GONE);
+                                tvInfoScore.setVisibility(View.GONE);
                                 nilaiScore.setVisibility(View.VISIBLE);
-                                back2Menu.setVisibility(View.VISIBLE);
+                                btnMenu.setVisibility(View.VISIBLE);
+                                btnHighScore.setVisibility(View.VISIBLE);
+                                btnPlayAgain.setVisibility(View.VISIBLE);
                             }
                         }, 1000);
                     }
@@ -267,18 +275,55 @@ public class RecentScoreActivity extends AppCompatActivity {
         });
     }
 
-    public void setBack2Menu(){
-        back2Menu.setOnClickListener(new View.OnClickListener() {
+    public void setOnClick(){
+        btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnMenu.setEnabled(false);
+                btnHighScore.setEnabled(false);
+                btnPlayAgain.setEnabled(false);
                 Intent intent = new Intent(RecentScoreActivity.this, MenuActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnHighScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnMenu.setEnabled(false);
+                btnHighScore.setEnabled(false);
+                btnPlayAgain.setEnabled(false);
+                Intent intent = new Intent(RecentScoreActivity.this, HighscoreActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnPlayAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnMenu.setEnabled(false);
+                btnHighScore.setEnabled(false);
+                btnPlayAgain.setEnabled(false);
+                Intent intent = new Intent(RecentScoreActivity.this, KategoriActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
 
+
     @Override
     public void onBackPressed() {
 
+    }
+
+    @Override
+    protected void onResume() {
+        btnMenu.setEnabled(true);
+        btnHighScore.setEnabled(true);
+        btnPlayAgain.setEnabled(true);
+        super.onResume();
     }
 }

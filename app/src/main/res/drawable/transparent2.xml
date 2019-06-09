@@ -7,7 +7,7 @@
             <solid android:color="#26FFFFFF"/>
             <stroke android:color="#ede576" android:width="0dp"/>
             <!--make button border solid color, nontransparent-->
-            <corners android:radius="10dp"/>
+            <corners android:radius="50dp"/>
         </shape>
     </item>
 </selector>

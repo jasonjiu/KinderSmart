@@ -21,7 +21,7 @@ public class KategoriActivity extends AppCompatActivity {
     private LinearLayout    backLayout;
     private MediaPlayer     bgMusic;
     private Score           currScore;
-    private UserLocalStore userLocalStore;
+    private UserLocalStore  userLocalStore;
 
 
     @Override
@@ -83,6 +83,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "1");
                 intent.putExtra("tebak","Tebak Hewan");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -97,6 +98,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "2");
                 intent.putExtra("tebak", "Tebak Angka");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -111,6 +113,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "3");
                 intent.putExtra("tebak", "Tebak Bentuk");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -125,6 +128,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "4");
                 intent.putExtra("tebak", "Tebak Warna");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -139,6 +143,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Kenal", "9");
                 intent.putExtra("kenal", "Mengenal Hewan");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -153,6 +158,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Kenal", "10");
                 intent.putExtra("kenal", "Mengenal Angka");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -167,6 +173,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Kenal", "11");
                 intent.putExtra("kenal", "Mengenal Bentuk");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -180,6 +187,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Kenal", "12");
                 intent.putExtra("kenal", "Mengenal Warna");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -194,6 +202,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "5");
                 intent.putExtra("tebak","Penjumlahan");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -208,6 +217,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "6");
                 intent.putExtra("tebak","Pengurangan");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -222,6 +232,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "7");
                 intent.putExtra("tebak","Perkalian");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -236,6 +247,7 @@ public class KategoriActivity extends AppCompatActivity {
                 intent.putExtra("Kategori_Tebak", "8");
                 intent.putExtra("tebak","Pembagian");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -264,6 +276,8 @@ public class KategoriActivity extends AppCompatActivity {
             public void onClick(View v) {
                 backLayout.setClickable(false);
                 pauseBackgroundMusic();
+                Intent intent = new Intent(KategoriActivity.this, MenuActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
