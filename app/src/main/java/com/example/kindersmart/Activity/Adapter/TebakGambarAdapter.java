@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.SoalTebakGambar;
@@ -22,6 +23,8 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     private Context                         context;
     private List<SoalTebakGambar>           soalTebakGambars;
     private OnImageClickListener            onImageClickListener;
+    private int lastPos = 0;
+
 
     public TebakGambarAdapter(Context context) {
         this.context = context;
@@ -45,7 +48,6 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
     @Override
     public void onBindViewHolder(@NonNull final TebakGambarAdapter.tgViewHolder holder, final int position) {
         final SoalTebakGambar soalTebakGambar = soalTebakGambars.get(position);
-
         Picasso.with(context).load(soalTebakGambar.getUrl_soal()).into(holder.soalTebak);
         holder.tvSoal.setText(soalTebakGambar.getSoal());
         holder.jbtn1.setText(soalTebakGambar.getPilihan_jawaban1());
@@ -56,27 +58,54 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
         holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.jbtn1.setEnabled(false);
+                holder.jbtn2.setEnabled(false);
+                holder.jbtn3.setEnabled(false);
+                holder.jbtn4.setEnabled(false);
+                lastPos = position;
                 onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(), position);
             }
         });
         holder.jbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.jbtn1.setEnabled(false);
+                holder.jbtn2.setEnabled(false);
+                holder.jbtn3.setEnabled(false);
+                holder.jbtn4.setEnabled(false);                lastPos = position;
                 onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(), position);
             }
         });
         holder.jbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.jbtn1.setEnabled(false);
+                holder.jbtn2.setEnabled(false);
+                holder.jbtn3.setEnabled(false);
+                holder.jbtn4.setEnabled(false);
+                lastPos = position;
                 onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(), position);
             }
         });
         holder.jbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.jbtn1.setEnabled(false);
+                holder.jbtn2.setEnabled(false);
+                holder.jbtn3.setEnabled(false);
+                holder.jbtn4.setEnabled(false);
+                lastPos = position;
                 onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(), position);
             }
         });
+
+        if (position > lastPos){
+            holder.jbtn1.setEnabled(true);
+            holder.jbtn2.setEnabled(true);
+            holder.jbtn3.setEnabled(true);
+            holder.jbtn4.setEnabled(true);
+            Toast.makeText(context, lastPos+"", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
