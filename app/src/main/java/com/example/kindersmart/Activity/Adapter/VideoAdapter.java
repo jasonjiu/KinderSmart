@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.kindersmart.Activity.Model.APIKey;
 import com.example.kindersmart.Activity.Model.Video;
@@ -84,6 +85,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.videoViewHol
                 context.startActivity(i);
             }
         });
+
+        holder.videoTitle.setText(video.getVideoName());
     }
 
     @Override
@@ -97,11 +100,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.videoViewHol
 
     public class videoViewHolder extends RecyclerView.ViewHolder {
         private YouTubeThumbnailView videoThumbnailImageView;
+        private TextView             videoTitle;
         private RelativeLayout layoutYoutube;
         public videoViewHolder(View itemView) {
             super(itemView);
             videoThumbnailImageView = itemView.findViewById(R.id.video_thumbnail_image_view);
             layoutYoutube = itemView.findViewById(R.id.layoutYoutube);
+            videoTitle = itemView.findViewById(R.id.tvVideo);
 
         }
     }

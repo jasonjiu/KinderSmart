@@ -57,7 +57,8 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
             holder.back.setVisibility(View.GONE);
         }
         else if (position == mengenalList.size() - 1){
-            holder.next.setVisibility(View.GONE);
+            holder.next.setVisibility(View.INVISIBLE);
+
         }
 
         if(isPlaying.equals("true")){

@@ -1,12 +1,21 @@
 package com.example.kindersmart.Activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,13 +37,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoEdukasiActivity extends AppCompatActivity {
-    private Context context;
-    private RequestQueue queue;
-    private RecyclerView rvVideo;
-    private List<Video> videoList = new ArrayList<>();
-    private VideoAdapter videoAdapter;
-
-
+    private Context             context;
+    private RequestQueue        queue;
+    private RecyclerView        rvVideo;
+    private List<Video>         videoList = new ArrayList<>();
+    private VideoAdapter        videoAdapter;
+    private AlertDialog         alertDialog;
+    private ImageView           ivTb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +57,7 @@ public class VideoEdukasiActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvVideo.setLayoutManager(linearLayoutManager);
-
+        toolbar();
         queue= Volley.newRequestQueue(context);
         show_video();
     }
@@ -74,6 +83,50 @@ public class VideoEdukasiActivity extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    public void toolbar(){
+        Toolbar mToolbar = findViewById(R.id.tbVideo);
+        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
+        ivTb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ivTb.setEnabled(false);
+                exitDialog(R.layout.dialog_exit);
+            }
+        });
+
+    }
+    public void exitDialog(int layout){
+
+        AlertDialog.Builder dialogBuilder       = new AlertDialog.Builder(this);
+        View                layoutView          = getLayoutInflater().inflate(layout, null);
+        Button              dialogButton        = layoutView.findViewById(R.id.btnDialogExit);
+        Button              dialogCancel        = layoutView.findViewById(R.id.btnDialogCancel);
+        dialogBuilder.setView(layoutView);
+
+        alertDialog  = dialogBuilder.create();
+        alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        ivTb.setEnabled(true);
+
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VideoEdukasiActivity.this, MenuActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        dialogCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
     }
 
     public void show_video(){

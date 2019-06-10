@@ -2,6 +2,9 @@ package com.example.kindersmart.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -39,6 +45,9 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     private RecyclerView                rv;
     private KenalGambarAdapter          kenalGambarAdapter;
     private List<Mengenal>              mengenalList = new ArrayList<>();
+    private AlertDialog                 alertDialog;
+    private TextView                    tvTb;
+    private ImageView                   ivTb;
 
 
     @Override
@@ -83,15 +92,49 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     }
 
     public void toolbar(){
-        Toolbar mToolbar = findViewById(R.id.tbConfirmation);
-        mToolbar.setTitle(getNamaPengenalan);
-        mToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        Toolbar mToolbar = findViewById(R.id.tbMengenal);
+        tvTb             = mToolbar.findViewById(R.id.tvtbTitle);
+        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
+        tvTb.setText(getNamaPengenalan);
+        ivTb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ivTb.setEnabled(false);
+                exitDialog(R.layout.dialog_exit);
+            }
+        });
+
+    }
+    public void exitDialog(int layout){
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View layoutView = getLayoutInflater().inflate(layout, null);
+        Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
+        Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
+        dialogBuilder.setView(layoutView);
+
+        alertDialog  = dialogBuilder.create();
+        alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        ivTb.setEnabled(true);
+
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PengenalanActivity.this, KategoriActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
+
+        dialogCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
     }
 
     public void show_kenal(){
