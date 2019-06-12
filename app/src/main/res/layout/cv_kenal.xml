@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
-                android:text="Beruang Kutub"
+                android:text="@string/textpreview"
                 android:textAlignment="center"
                 android:textColor="@color/chalk"
                 android:textSize="20sp"

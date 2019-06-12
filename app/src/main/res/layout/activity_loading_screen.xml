@@ -8,14 +8,17 @@
     android:background="@drawable/loadingbg"
     tools:context=".Activity.LoadingScreen">
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         app:lottie_autoPlay="true"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
         app:lottie_fileName="buss.json"
         app:lottie_loop="true"/>
+
 
 </RelativeLayout>

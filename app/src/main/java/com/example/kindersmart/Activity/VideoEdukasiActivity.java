@@ -96,6 +96,7 @@ public class VideoEdukasiActivity extends AppCompatActivity {
             }
         });
 
+
     }
     public void exitDialog(int layout){
 
