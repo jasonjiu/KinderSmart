@@ -16,6 +16,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.youtube.player.YouTubeThumbnailView
+            android:paddingTop="5dp"
             android:background="@color/green"
             android:id="@+id/video_thumbnail_image_view"
             android:layout_width="match_parent"

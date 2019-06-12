@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieDrawable;
 import com.example.kindersmart.R;
 
 public class LoadingScreen extends AppCompatActivity {
@@ -28,6 +30,7 @@ public class LoadingScreen extends AppCompatActivity {
 
 //        Log.d("loadingnya", firstLoad);
         lottieAnimationView = findViewById(R.id.animation_view);
+
 
         Logo logo = new Logo();
         logo.start();

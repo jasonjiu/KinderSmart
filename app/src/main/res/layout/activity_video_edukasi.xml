@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green"
-    android:foreground="@drawable/transparent"
     tools:context="com.example.kindersmart.Activity.VideoEdukasiActivity">
 
 
     <android.support.v7.widget.Toolbar
+        android:foreground="@drawable/transparent"
         android:id="@+id/tbVideo"
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"

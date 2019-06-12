@@ -1,10 +1,14 @@
 package com.example.kindersmart.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,11 +35,14 @@ public class HighscoreActivity extends AppCompatActivity {
     private TextView        tvTebakAngka;
     private Score           highScore;
     private UserLocalStore  userLocalStore;
+    private AlertDialog     alertDialog;
+    private ImageView       ivTb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_highscore);
+        setContentView(R.layout.activity_high_score);
         userLocalStore = new UserLocalStore(this);
         highScore = userLocalStore.getUserScore();
         init();
@@ -99,9 +106,31 @@ public class HighscoreActivity extends AppCompatActivity {
 
     public void toolbar(){
         Toolbar mToolbar = findViewById(R.id.tbHighScore);
-        mToolbar.setTitle("Nilai Tertinggi");
-        mToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
+        ivTb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ivTb.setEnabled(false);
+                exitDialog(R.layout.dialog_exit);
+            }
+        });
+
+    }
+    public void exitDialog(int layout){
+
+        AlertDialog.Builder dialogBuilder       = new AlertDialog.Builder(this);
+        View                layoutView          = getLayoutInflater().inflate(layout, null);
+        Button              dialogButton        = layoutView.findViewById(R.id.btnDialogExit);
+        Button              dialogCancel        = layoutView.findViewById(R.id.btnDialogCancel);
+        dialogBuilder.setView(layoutView);
+
+        alertDialog  = dialogBuilder.create();
+        alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        ivTb.setEnabled(true);
+
+        dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HighscoreActivity.this, MenuActivity.class);
@@ -109,6 +138,14 @@ public class HighscoreActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        dialogCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
     }
 
 
