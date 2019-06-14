@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -48,6 +51,10 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     private AlertDialog                 alertDialog;
     private TextView                    tvTb;
     private ImageView                   ivTb;
+    private LottieAnimationView         loading;
+    private FragmentManager             fragmentManager;
+    private FragmentTransaction         fragmentTransaction;
+    private ConnectionErrorFragment     fragment;
 
 
     @Override
@@ -60,9 +67,15 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         getNamaPengenalan   = intent.getStringExtra("kenal");
         queue               = Volley.newRequestQueue(context);
         rv                  = findViewById(R.id.rvKenal);
+        loading             = findViewById(R.id.loadingAnimation);
         lm                  = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
         lm.setScrollEnabled(false);
         rv.setLayoutManager(lm);
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragment = new ConnectionErrorFragment();
+
         toolbar();
         show_kenal();
 
@@ -150,6 +163,7 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
                                     Log.d("listSoal",listSoal.toString());
                                     for (int i = 0; i < listSoal.length(); i++) {
                                         try {
+                                            loading.setVisibility(View.GONE);
                                             rv.setVisibility(View.VISIBLE);
                                             final JSONObject obj = listSoal.getJSONObject(i);
 
@@ -175,6 +189,10 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        loading.setVisibility(View.GONE);
+                        Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_LONG).show();
+                        fragmentTransaction.add(R.id.fragmen404, fragment);
+                        fragmentTransaction.commit();
                         //Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

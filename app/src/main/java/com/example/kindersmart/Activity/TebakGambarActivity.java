@@ -1,10 +1,11 @@
 package com.example.kindersmart.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -48,6 +50,10 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     private TextView                    tvTb;
     private ImageView                   ivTb;
     private AlertDialog                 alertDialog;
+    private LottieAnimationView         loading;
+    private FragmentManager             fragmentManager;
+    private FragmentTransaction         fragmentTransaction;
+    private ConnectionErrorFragment     fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +65,14 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         getNamaTebakan      = intent.getStringExtra("tebak");
         queue               = Volley.newRequestQueue(context);
         rvSoal              = findViewById(R.id.rvSoalTebak);
+        loading             = findViewById(R.id.loadingAnimation);
         lm                  = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
         lm.setScrollEnabled(false);
         rvSoal.setLayoutManager(lm);
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragment = new ConnectionErrorFragment();
 
         show_soal();
         toolbar();
@@ -152,6 +163,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                     Log.d("listSoal",listSoal.toString());
                                     for (int i = 0; i < listSoal.length(); i++) {
                                         try {
+                                            loading.setVisibility(View.GONE);
                                             rvSoal.setVisibility(View.VISIBLE);
                                             final JSONObject obj = listSoal.getJSONObject(i);
 
@@ -182,6 +194,10 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        loading.setVisibility(View.GONE);
+                        Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_LONG).show();
+                        fragmentTransaction.add(R.id.fragmen404, fragment);
+                        fragmentTransaction.commit();
                         //Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

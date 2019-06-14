@@ -1,6 +1,8 @@
 package com.example.kindersmart.Activity.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +14,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kindersmart.Activity.MenuActivity;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.SoalTebakGambar;
+import com.example.kindersmart.Activity.SplashScreenActivity;
 import com.example.kindersmart.R;
 import com.squareup.picasso.Picasso;
 
@@ -63,19 +67,50 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
                 holder.jbtn3.setEnabled(false);
                 holder.jbtn4.setEnabled(false);
                 lastPos = position;
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(), position);
+
+                if (soalTebakGambar.getPilihan_jawaban1().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn1.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+
+                }
+                else if (!soalTebakGambar.getPilihan_jawaban1().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn1.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                }
+
+              holder.jbtn1.postDelayed(new Runnable() {
+                  @Override
+                  public void run() {
+                      onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban1(), position);
+                  }
+              },300);
+
             }
         });
+
         holder.jbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 holder.jbtn1.setEnabled(false);
                 holder.jbtn2.setEnabled(false);
                 holder.jbtn3.setEnabled(false);
-                holder.jbtn4.setEnabled(false);                lastPos = position;
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(), position);
-            }
+                holder.jbtn4.setEnabled(false);
+                lastPos = position;
+
+                if (soalTebakGambar.getPilihan_jawaban2().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn2.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+
+                }
+                else if (!soalTebakGambar.getPilihan_jawaban2().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn2.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                }
+
+                holder.jbtn2.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban2(), position);
+                    }
+                },300);            }
         });
+
         holder.jbtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,9 +119,24 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
                 holder.jbtn3.setEnabled(false);
                 holder.jbtn4.setEnabled(false);
                 lastPos = position;
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(), position);
+
+                if (soalTebakGambar.getPilihan_jawaban3().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn3.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+
+                }
+                else if (!soalTebakGambar.getPilihan_jawaban3().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn3.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                }
+
+                holder.jbtn3.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban3(), position);
+                    }
+                },300);
             }
         });
+
         holder.jbtn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,8 +145,21 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
                 holder.jbtn3.setEnabled(false);
                 holder.jbtn4.setEnabled(false);
                 lastPos = position;
-                onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(), position);
-            }
+
+                if (soalTebakGambar.getPilihan_jawaban4().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn4.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+
+                }
+                else if (!soalTebakGambar.getPilihan_jawaban4().equals(soalTebakGambar.getKunci_jawaban())){
+                    holder.jbtn4.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                }
+
+                holder.jbtn4.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onImageClickListener.onImageClick(soalTebakGambar.getPilihan_jawaban4(), position);
+                    }
+                },300);            }
         });
 
         if (position > lastPos){
@@ -106,6 +169,8 @@ public class TebakGambarAdapter extends RecyclerView.Adapter<TebakGambarAdapter.
             holder.jbtn4.setEnabled(true);
             Toast.makeText(context, lastPos+"", Toast.LENGTH_SHORT).show();
         }
+
+
 
     }
 
