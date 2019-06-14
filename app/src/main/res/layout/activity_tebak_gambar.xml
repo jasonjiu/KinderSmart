@@ -5,15 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green"
     tools:context=".Activity.TebakGambarActivity">
 
     <android.support.v7.widget.Toolbar
+        android:foreground="@drawable/transparent"
         android:id="@+id/tbConfirmation"
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         app:titleTextColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:foreground="@drawable/transparent"
         android:background="@color/wood">
 
         <TextView
@@ -37,7 +38,27 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <FrameLayout
+        android:id="@+id/fragmen404"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbConfirmation"
+        tools:layout="@layout/fragment_connection_error">
+
+    </FrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingAnimation"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loadingbook.json"
+        app:lottie_loop="true" />
+
     <android.support.v7.widget.RecyclerView
+        android:visibility="visible"
         android:id="@+id/rvSoalTebak"
         android:orientation="horizontal"
         android:layout_below="@id/tbConfirmation"

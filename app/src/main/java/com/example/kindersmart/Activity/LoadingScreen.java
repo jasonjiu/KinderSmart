@@ -14,7 +14,7 @@ import com.example.kindersmart.R;
 
 public class LoadingScreen extends AppCompatActivity {
 
-    private int SLEEP_TIMER = 7;
+    private int SLEEP_TIMER = 5;
     private LottieAnimationView lottieAnimationView;
     private String              getLoading;
 

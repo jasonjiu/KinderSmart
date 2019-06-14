@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +18,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -37,26 +41,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoEdukasiActivity extends AppCompatActivity {
-    private Context             context;
-    private RequestQueue        queue;
-    private RecyclerView        rvVideo;
-    private List<Video>         videoList = new ArrayList<>();
-    private VideoAdapter        videoAdapter;
-    private AlertDialog         alertDialog;
-    private ImageView           ivTb;
+    private Context                     context;
+    private RequestQueue                queue;
+    private RecyclerView                rvVideo;
+    private List<Video>                 videoList = new ArrayList<>();
+    private VideoAdapter                videoAdapter;
+    private AlertDialog                 alertDialog;
+    private ImageView                   ivTb;
+    private LottieAnimationView         loading;
+    private FragmentManager             fragmentManager;
+    private FragmentTransaction         fragmentTransaction;
+    private ConnectionErrorFragment     fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_edukasi);
-        context = VideoEdukasiActivity.this;
-
-        rvVideo = findViewById(R.id.rvVideo);
+        context     = VideoEdukasiActivity.this;
+        rvVideo     = findViewById(R.id.rvVideo);
+        loading     = findViewById(R.id.loadingAnimation);
         rvVideo.setHasFixedSize(true);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvVideo.setLayoutManager(linearLayoutManager);
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragment = new ConnectionErrorFragment();
+
         toolbar();
         queue= Volley.newRequestQueue(context);
         show_video();
@@ -143,6 +156,7 @@ public class VideoEdukasiActivity extends AppCompatActivity {
                             Log.d("listVideo",listVideo.toString());
                             for (int i = 0; i < listVideo.length(); i++) {
                                 try {
+                                    loading.setVisibility(View.GONE);
                                     rvVideo.setVisibility(View.VISIBLE);
                                     final JSONObject obj = listVideo.getJSONObject(i);
 
@@ -166,6 +180,10 @@ public class VideoEdukasiActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                loading.setVisibility(View.GONE);
+                Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_LONG).show();
+                fragmentTransaction.add(R.id.fragmen404, fragment);
+                fragmentTransaction.commit();
                 //Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -10,4 +10,8 @@
     <color name="green">#175451</color>
     <color name="chalk">#e0dbd1</color>
     <color name="wood">#6a4940</color>
+    <color name="chalky_yello">#ECCF8D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="correct">#66FF66</color>
+
 </resources>

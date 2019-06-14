@@ -70,8 +70,9 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:textColor="@color/green"
-                    android:backgroundTint="@color/chalk"
+                    android:textColor="@color/white"
+                    android:text="@string/textpreview"
+                    android:backgroundTint="@color/chalky_yello"
                     android:background="@drawable/roundbtn"
                     android:layout_marginEnd="70dp"
                     android:id="@+id/btnJawabTebak1"
@@ -79,8 +80,9 @@
                     android:layout_height="70dp"/>
 
                 <Button
-                    android:textColor="@color/green"
-                    android:backgroundTint="@color/chalk"
+                    android:text="@string/textpreview"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/chalky_yello"
                     android:background="@drawable/roundbtn"
                     android:id="@+id/btnJawabTebak2"
                     android:layout_width="120dp"
@@ -98,8 +100,9 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:textColor="@color/green"
-                    android:backgroundTint="@color/chalk"
+                    android:text="@string/textpreview"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/chalky_yello"
                     android:background="@drawable/roundbtn"
                     android:layout_marginEnd="70dp"
                     android:id="@+id/btnJawabTebak3"
@@ -107,8 +110,9 @@
                     android:layout_height="70dp"/>
 
                 <Button
-                    android:textColor="@color/green"
-                    android:backgroundTint="@color/chalk"
+                    android:text="@string/textpreview"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/chalky_yello"
                     android:background="@drawable/roundbtn"
                     android:id="@+id/btnJawabTebak4"
                     android:layout_width="120dp"

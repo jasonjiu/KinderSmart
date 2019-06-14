@@ -45,6 +45,25 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <FrameLayout
+        android:id="@+id/fragmen404"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbVideo"
+        tools:layout="@layout/fragment_connection_error">
+
+    </FrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingAnimation"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loadingbook.json"
+        app:lottie_loop="true" />
+
     <RelativeLayout
         android:layout_below="@+id/tbVideo"
         android:layout_width="match_parent"
