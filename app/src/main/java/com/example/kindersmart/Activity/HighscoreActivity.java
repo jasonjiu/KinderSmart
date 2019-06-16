@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.kindersmart.Activity.Model.Score;
 import com.example.kindersmart.Activity.Model.UserLocalStore;
 import com.example.kindersmart.R;
@@ -35,7 +37,6 @@ public class HighscoreActivity extends AppCompatActivity {
     private TextView        tvTebakAngka;
     private Score           highScore;
     private UserLocalStore  userLocalStore;
-    private AlertDialog     alertDialog;
     private ImageView       ivTb;
 
 
@@ -110,39 +111,14 @@ public class HighscoreActivity extends AppCompatActivity {
         ivTb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(ivTb);
                 ivTb.setEnabled(false);
-                exitDialog(R.layout.dialog_exit);
-            }
-        });
-
-    }
-    public void exitDialog(int layout){
-
-        AlertDialog.Builder dialogBuilder       = new AlertDialog.Builder(this);
-        View                layoutView          = getLayoutInflater().inflate(layout, null);
-        Button              dialogButton        = layoutView.findViewById(R.id.btnDialogExit);
-        Button              dialogCancel        = layoutView.findViewById(R.id.btnDialogCancel);
-        dialogBuilder.setView(layoutView);
-
-        alertDialog  = dialogBuilder.create();
-        alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.show();
-        ivTb.setEnabled(true);
-
-        dialogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent = new Intent(HighscoreActivity.this, MenuActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-
-        dialogCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
             }
         });
 

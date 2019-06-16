@@ -6,7 +6,7 @@
     android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.TebakGambarActivity">
+    tools:context=".Activity.QuizActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tbConfirmation"
@@ -23,7 +23,7 @@
         android:layout_below="@id/tbConfirmation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/cv_tebak"
+        tools:listitem="@layout/cv_quiz"
         >
 
     </android.support.v7.widget.RecyclerView>

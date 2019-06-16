@@ -25,10 +25,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kindersmart.Activity.Adapter.TebakGambarAdapter;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.example.kindersmart.Activity.Adapter.QuizAdapter;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.CustomLinearLayoutManager;
-import com.example.kindersmart.Activity.Model.SoalTebakGambar;
+import com.example.kindersmart.Activity.Model.SoalQuiz;
 import com.example.kindersmart.R;
 
 import org.json.JSONArray;
@@ -38,13 +40,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TebakGambarActivity extends AppCompatActivity implements OnImageClickListener {
+public class QuizActivity extends AppCompatActivity implements OnImageClickListener {
     private String                      getKategoriExtra, getNamaTebakan;
     private RecyclerView                rvSoal;
     private Context                     context;
     private RequestQueue                queue;
-    private TebakGambarAdapter          tebakGambarAdapter;
-    private List<SoalTebakGambar>       soalTebakGambarList    = new ArrayList<>();
+    private QuizAdapter quizAdapter;
+    private List<SoalQuiz> soalQuizList = new ArrayList<>();
     private CustomLinearLayoutManager   lm;
     private int                         score = 0;
     private TextView                    tvTb;
@@ -58,8 +60,8 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tebak_gambar);
-        context             = TebakGambarActivity.this;
+        setContentView(R.layout.activity_quiz);
+        context             = QuizActivity.this;
         Intent intent       = getIntent();
         getKategoriExtra    = intent.getStringExtra("Kategori_Tebak");
         getNamaTebakan      = intent.getStringExtra("tebak");
@@ -104,10 +106,12 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
 
     public void exitDialog(int layout){
 
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        View layoutView = getLayoutInflater().inflate(layout, null);
-        Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
-        Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
+        AlertDialog.Builder dialogBuilder   = new AlertDialog.Builder(this);
+        View                layoutView      = getLayoutInflater().inflate(layout, null);
+        Button              dialogButton    = layoutView.findViewById(R.id.btnDialogExit);
+        Button              dialogCancel    = layoutView.findViewById(R.id.btnDialogCancel);
+        TextView            tvDialog1       = layoutView.findViewById(R.id.textView);
+        TextView            tvDialog2       = layoutView.findViewById(R.id.textView2);
         dialogBuilder.setView(layoutView);
 
         alertDialog  = dialogBuilder.create();
@@ -116,10 +120,13 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         alertDialog.show();
         ivTb.setEnabled(true);
 
+        tvDialog1.setText(getResources().getString(R.string.stop_playing));
+        tvDialog2.setText(getResources().getString(R.string.confrim_stop_playing));
+
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TebakGambarActivity.this, KategoriActivity.class);
+                Intent intent = new Intent(QuizActivity.this, KategoriActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -143,6 +150,10 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         ivTb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(ivTb);
                 ivTb.setEnabled(false);
                 exitDialog(R.layout.dialog_exit);
             }
@@ -157,7 +168,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                             @Override
                             public void onResponse(JSONObject response) {
                                 JSONArray listSoal = null;
-                                soalTebakGambarList.clear();
+                                soalQuizList.clear();
                                 try {
                                     listSoal = response.getJSONArray("result");
                                     Log.d("listSoal",listSoal.toString());
@@ -167,7 +178,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                             rvSoal.setVisibility(View.VISIBLE);
                                             final JSONObject obj = listSoal.getJSONObject(i);
 
-                                            soalTebakGambarList.add(new SoalTebakGambar(
+                                            soalQuizList.add(new SoalQuiz(
                                                     obj.getInt("kategoriID"),
                                                     obj.getInt("soal_ke"),
                                                     obj.getString("soal_picture"),
@@ -181,10 +192,10 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                                             e1.printStackTrace();
                                         }
                                     }
-                                    tebakGambarAdapter = new TebakGambarAdapter(context);
-                                    tebakGambarAdapter.setSoalTebakGambars(soalTebakGambarList);
-                                    tebakGambarAdapter.setTebakGambarAdapter((OnImageClickListener) context);
-                                    rvSoal.setAdapter(tebakGambarAdapter);
+                                    quizAdapter = new QuizAdapter(context);
+                                    quizAdapter.setSoalQuizs(soalQuizList);
+                                    quizAdapter.setTebakGambarAdapter((OnImageClickListener) context);
+                                    rvSoal.setAdapter(quizAdapter);
 
 
                                 } catch (JSONException e) {
@@ -219,9 +230,9 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
         Log.d("getextra", getKategoriExtra);
 
         try {
-            Log.d("kuncijawaban", soalTebakGambarList.get(position).getKunci_jawaban());
+            Log.d("kuncijawaban", soalQuizList.get(position).getKunci_jawaban());
             Log.d("jawaban", data);
-            if (data.equals(soalTebakGambarList.get(position).getKunci_jawaban())){
+            if (data.equals(soalQuizList.get(position).getKunci_jawaban())){
                 score += 10;
 //                Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
                 rvSoal.getLayoutManager().scrollToPosition(position+1);
@@ -234,7 +245,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
             e.printStackTrace();
         }
         
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("1") ) {
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("1") ) {
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hewan", score);
@@ -242,7 +253,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("2")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("2")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("buah", score);
@@ -250,7 +261,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("3")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("3")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("organ", score);
@@ -258,7 +269,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("4")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("4")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("warna", score);
@@ -266,7 +277,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("5")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("5")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("penjumlahan", score);
@@ -274,7 +285,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("6")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("6")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("pengurangan", score);
@@ -282,7 +293,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("7")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("7")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hitungGambar", score);
@@ -290,7 +301,7 @@ public class TebakGambarActivity extends AppCompatActivity implements OnImageCli
                 startActivity(intent);
                 finish();
             }
-            if (position == tebakGambarAdapter.getItemCount()-1 && getKategoriExtra.equals("8")){
+            if (position == quizAdapter.getItemCount()-1 && getKategoriExtra.equals("8")){
                 Intent intent = new Intent(context, RecentScoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("tebakAngka", score);

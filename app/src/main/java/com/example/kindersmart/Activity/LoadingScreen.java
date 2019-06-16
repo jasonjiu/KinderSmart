@@ -8,13 +8,11 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieDrawable;
 import com.example.kindersmart.R;
 
 public class LoadingScreen extends AppCompatActivity {
 
-    private int SLEEP_TIMER = 5;
+    private int SLEEP_TIMER = 3;
     private LottieAnimationView lottieAnimationView;
     private String              getLoading;
 
@@ -24,14 +22,9 @@ public class LoadingScreen extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_loading_screen);
-
-        Intent intent   = getIntent();
-        getLoading      = intent.getStringExtra("loading");
-
-//        Log.d("loadingnya", firstLoad);
-        lottieAnimationView = findViewById(R.id.animation_view);
-
-
+        Intent intent           = getIntent();
+        getLoading              = intent.getStringExtra("loading");
+        lottieAnimationView     = findViewById(R.id.animation_view);
         Logo logo = new Logo();
         logo.start();
     }
@@ -78,7 +71,7 @@ public class LoadingScreen extends AppCompatActivity {
                 LoadingScreen.this.finish();
             }
             else if (getLoading.equals("quiz")){
-                Intent intent = new Intent(LoadingScreen.this, TebakGambarActivity.class);
+                Intent intent = new Intent(LoadingScreen.this, QuizActivity.class);
                 startActivity(intent);
                 LoadingScreen.this.finish();
             }
@@ -92,14 +85,6 @@ public class LoadingScreen extends AppCompatActivity {
                 startActivity(intent);
                 LoadingScreen.this.finish();
             }
-            else if (getLoading.equals("highscore")){
-                Intent intent = new Intent(LoadingScreen.this, HighscoreActivity.class);
-                startActivity(intent);
-                LoadingScreen.this.finish();
-            }
-
-
-
         }
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<animated-rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/progress"
+    android:height="5dp"
+    android:width="5dp"
+    android:viewportHeight="5.0"
+    android:viewportWidth="5.0"
+    android:pivotX="50%"
+    android:pivotY="50%"/>

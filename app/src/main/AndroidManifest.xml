@@ -25,7 +25,7 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Activity.PengenalanActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.TebakGambarActivity"
+        <activity android:name=".Activity.QuizActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Activity.HighscoreActivity"
             android:screenOrientation="portrait"/>

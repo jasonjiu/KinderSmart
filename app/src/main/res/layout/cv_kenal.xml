@@ -27,18 +27,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_toStartOf="@+id/ivKenal"
+                android:layout_toStartOf="@+id/ivBorder"
                 android:tint="@color/chalk"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 
+            <ImageView
+                android:id="@+id/ivBorder"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/border"/>
 
             <ImageView
                 android:layout_marginTop="20dp"
                 android:id="@+id/ivKenal"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/progress_animation"/>
 
 
             <ImageView
@@ -47,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_toEndOf="@+id/ivKenal"
+                android:layout_toEndOf="@+id/ivBorder"
                 android:tint="@color/chalk"
                 android:src="@drawable/ic_arrow_forward_black_24dp" />
 

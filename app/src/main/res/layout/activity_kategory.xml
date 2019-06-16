@@ -57,7 +57,10 @@
                 android:id="@+id/ivTebakHewan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -81,7 +84,10 @@
                 android:id="@+id/ivTebakBentuk"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background" />
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -105,7 +111,10 @@
                 android:id="@+id/ivTebakWarna"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background" />
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -129,7 +138,10 @@
                android:id="@+id/ivTebakAngka"
                android:layout_width="80dp"
                android:layout_height="80dp"
-               android:src="@drawable/ic_launcher_background" />
+               android:background="@drawable/border"
+               android:src="@drawable/egg"
+               android:padding="10dp"
+               android:scaleType="fitCenter"/>
 
            <TextView
                android:textColor="@color/chalk"
@@ -183,7 +195,10 @@
                 android:id="@+id/ivKenalHewan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -207,7 +222,10 @@
                 android:id="@+id/ivKenalAngka"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -231,7 +249,10 @@
                 android:id="@+id/ivKenalBentuk"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -255,7 +276,10 @@
                 android:id="@+id/ivKenalWarna"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -310,7 +334,10 @@
                 android:id="@+id/ivPenjumlahan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -334,7 +361,10 @@
                 android:id="@+id/ivPengurangan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -359,7 +389,10 @@
                 android:id="@+id/ivPerkalian"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
@@ -384,7 +417,10 @@
                 android:id="@+id/ivPembagian"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:background="@drawable/border"
+                android:src="@drawable/egg"
+                android:padding="10dp"
+                android:scaleType="fitCenter"/>
 
             <TextView
                 android:textColor="@color/chalk"
