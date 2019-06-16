@@ -8,21 +8,14 @@
     <string name="pengenalan">Mari Mengenal</string>
     <string name="matematika">Belajar Berhitung</string>
     <string name="gambarapa">Gambar Apakah Ini ?</string>
-
-    //kategori
     <string name="hewan">Hewan</string>
     <string name="buah">Buah</string>
     <string name="organ">Organ Tubuh</string>
     <string name="warna">Warna</string>
-
-    //berhitung
     <string name="penjumlahan">Penjumlahan</string>
     <string name="pengurangan">Pengurangan</string>
     <string name="hitungGambar">Hitung Gambar</string>
     <string name="tebakAngka">Tebak Angka</string>
-
-
-    //Recent Score
     <string name="score_tinggi">Selamat Score Anda</string>
     <string name="score_rendah">Sayang Sekali Jawaban Anda Tidak Ada Yang Benar</string>
     <string name="high_score_tebak_hewan">High Score Tebak Hewan</string>
@@ -43,12 +36,13 @@
     <string name="back2menu">Kembali Ke Menu ?</string>
     <string name="confirm_exit">Apakah Anda Yakin Untuk Keluar ?</string>
     <string name="keluar">Keluar</string>
-    <string name="rc_info">Silahkan Pecahkan Telurnya Untuk Melihat Nilai Yang Anda Peroleh
-        </string>
+    <string name="rc_info">Silahkan Pecahkan Telurnya Untuk Melihat Nilai Yang Anda Peroleh</string>
     <string name="menu">Kembali Ke Menu</string>
     <string name="textpreview">Text Preview</string>
     <string name="nilai_tertinggi">nilai tertinggi</string>
+    <string name="keluar_permainan">Keluar Permainan ?</string>
+    <string name="confrim_2menu">Apakah Anda Yakin Untuk Kembali Ke Menu ?</string>
+    <string name="stop_playing">Berhenti Bermain ?</string>
+    <string name="confrim_stop_playing">Apakah Anda Yakin Untuk Berhenti Bermain ?</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

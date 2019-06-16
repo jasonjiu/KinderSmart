@@ -1,6 +1,6 @@
 package com.example.kindersmart.Activity.Model;
 
-public class SoalTebakGambar {
+public class SoalQuiz {
     private int     idSoal;
     private int     soal_ke;
     private String  url_soal;
@@ -11,8 +11,8 @@ public class SoalTebakGambar {
     private String  pilihan_jawaban4;
     private String  soal;
 
-    public SoalTebakGambar(int idSoal, int soal_ke, String url_soal, String kunci_jawaban,
-                           String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4, String soal) {
+    public SoalQuiz(int idSoal, int soal_ke, String url_soal, String kunci_jawaban,
+                    String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4, String soal) {
         this.idSoal             = idSoal;
         this.soal_ke            = soal_ke;
         this.url_soal           = url_soal;

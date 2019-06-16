@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.kindersmart.R;
 
@@ -93,9 +94,8 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 highscoreBtn.setEnabled(false);
-                Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
+                Intent intent = new Intent(MenuActivity.this, HighscoreActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("loading", "highscore");
                 startActivity(intent);
                 finish();
             }
@@ -120,16 +120,21 @@ public class MenuActivity extends AppCompatActivity {
 
     public void exitDialog(int layout){
 
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        View layoutView = getLayoutInflater().inflate(layout, null);
-        Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
-        Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
+        AlertDialog.Builder dialogBuilder   = new AlertDialog.Builder(this);
+        View                layoutView      = getLayoutInflater().inflate(layout, null);
+        Button              dialogButton    = layoutView.findViewById(R.id.btnDialogExit);
+        Button              dialogCancel    = layoutView.findViewById(R.id.btnDialogCancel);
+        TextView            tvDialog1       = layoutView.findViewById(R.id.textView);
+        TextView            tvDialog2       = layoutView.findViewById(R.id.textView2);
         dialogBuilder.setView(layoutView);
         alertDialog  = dialogBuilder.create();
         alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
         exitbtn.setEnabled(true);
+
+        tvDialog1.setText(getResources().getString(R.string.keluar_permainan));
+        tvDialog2.setText(getResources().getString(R.string.confirm_exit));
 
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override

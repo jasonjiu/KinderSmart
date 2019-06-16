@@ -49,7 +49,7 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
     @Override
     public void onBindViewHolder(@NonNull final KenalGambarAdapter.kgViewHolder holder, final int position) {
         final Mengenal mengenal = mengenalList.get(position);
-        Picasso.with(context).load(mengenal.getGambarKenal()).into(holder.ivKenal);
+        Picasso.with(context).load(mengenal.getGambarKenal()).placeholder(R.drawable.progress_animation ).resize(300 ,300).into(holder.ivKenal);
         holder.tvKenal.setText(mengenal.getNamaKenal());
 
 

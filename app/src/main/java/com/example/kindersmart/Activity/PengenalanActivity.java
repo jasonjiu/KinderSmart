@@ -25,12 +25,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.kindersmart.Activity.Adapter.KenalGambarAdapter;
-import com.example.kindersmart.Activity.Adapter.TebakGambarAdapter;
 import com.example.kindersmart.Activity.Model.CustomLinearLayoutManager;
 import com.example.kindersmart.Activity.Model.Mengenal;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
-import com.example.kindersmart.Activity.Model.SoalTebakGambar;
 import com.example.kindersmart.R;
 
 import org.json.JSONArray;
@@ -112,6 +112,10 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         ivTb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(ivTb);
                 ivTb.setEnabled(false);
                 exitDialog(R.layout.dialog_exit);
             }
@@ -121,9 +125,11 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     public void exitDialog(int layout){
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        View layoutView = getLayoutInflater().inflate(layout, null);
-        Button dialogButton = layoutView.findViewById(R.id.btnDialogExit);
-        Button dialogCancel = layoutView.findViewById(R.id.btnDialogCancel);
+        View                layoutView      = getLayoutInflater().inflate(layout, null);
+        Button              dialogButton    = layoutView.findViewById(R.id.btnDialogExit);
+        Button              dialogCancel    = layoutView.findViewById(R.id.btnDialogCancel);
+        TextView            tvDialog1       = layoutView.findViewById(R.id.textView);
+        TextView            tvDialog2       = layoutView.findViewById(R.id.textView2);
         dialogBuilder.setView(layoutView);
 
         alertDialog  = dialogBuilder.create();
@@ -131,6 +137,10 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
         ivTb.setEnabled(true);
+
+        tvDialog1.setText(getResources().getString(R.string.stop_playing));
+        tvDialog2.setText(getResources().getString(R.string.confrim_stop_playing));
+
 
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override

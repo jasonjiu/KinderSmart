@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -71,7 +71,11 @@
                         android:id="@+id/ivHsHewan"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
+
                     </ImageView>
 
                     <TextView
@@ -107,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -118,7 +122,10 @@
                         android:id="@+id/ivHsBuah"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -154,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -165,7 +172,10 @@
                         android:id="@+id/ivHsOrgan"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -201,7 +211,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -212,7 +222,10 @@
                         android:id="@+id/ivHsWarna"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -248,7 +261,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -259,7 +272,10 @@
                         android:id="@+id/ivHsPenjumlahan"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -295,7 +311,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -306,7 +322,10 @@
                         android:id="@+id/ivHsPengurangan"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -342,7 +361,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -353,7 +372,10 @@
                         android:id="@+id/ivHsHitungGambar"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView
@@ -389,7 +411,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/background"
+                app:cardBackgroundColor="@color/yellow"
                 app:cardCornerRadius="8dp">
 
                 <RelativeLayout
@@ -400,7 +422,10 @@
                         android:id="@+id/ivHsTebakAngka"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/score">
+                        android:background="@drawable/border"
+                        android:src="@drawable/egg"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter">
                     </ImageView>
 
                     <TextView

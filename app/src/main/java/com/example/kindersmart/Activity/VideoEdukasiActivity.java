@@ -13,7 +13,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,10 +25,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kindersmart.Activity.Adapter.TebakGambarAdapter;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.kindersmart.Activity.Adapter.VideoAdapter;
-import com.example.kindersmart.Activity.Model.OnImageClickListener;
-import com.example.kindersmart.Activity.Model.SoalTebakGambar;
 import com.example.kindersmart.Activity.Model.Video;
 import com.example.kindersmart.R;
 
@@ -104,6 +102,10 @@ public class VideoEdukasiActivity extends AppCompatActivity {
         ivTb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(ivTb);
                 ivTb.setEnabled(false);
                 exitDialog(R.layout.dialog_exit);
             }
@@ -117,6 +119,8 @@ public class VideoEdukasiActivity extends AppCompatActivity {
         View                layoutView          = getLayoutInflater().inflate(layout, null);
         Button              dialogButton        = layoutView.findViewById(R.id.btnDialogExit);
         Button              dialogCancel        = layoutView.findViewById(R.id.btnDialogCancel);
+        TextView            tvDialog1           = layoutView.findViewById(R.id.textView);
+        TextView            tvDialog2           = layoutView.findViewById(R.id.textView2);
         dialogBuilder.setView(layoutView);
 
         alertDialog  = dialogBuilder.create();
@@ -124,6 +128,9 @@ public class VideoEdukasiActivity extends AppCompatActivity {
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
         ivTb.setEnabled(true);
+
+        tvDialog1.setText(getResources().getString(R.string.back2menu));
+        tvDialog2.setText(getResources().getString(R.string.confrim_2menu));
 
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
