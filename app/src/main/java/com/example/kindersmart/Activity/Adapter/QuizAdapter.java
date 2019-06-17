@@ -1,6 +1,7 @@
 package com.example.kindersmart.Activity.Adapter;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,9 +21,10 @@ import java.util.List;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> {
     private Context                         context;
-    private List<SoalQuiz> soalQuizs;
+    private List<SoalQuiz>                  soalQuizs;
     private OnImageClickListener            onImageClickListener;
-    private int lastPos = 0;
+    private int                             lastPos = 0;
+    private MediaPlayer                     trueFalseSound;
 
 
     public QuizAdapter(Context context) {
@@ -54,6 +56,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
         holder.jbtn3.setText(soalQuiz.getPilihan_jawaban3());
         holder.jbtn4.setText(soalQuiz.getPilihan_jawaban4());
 
+
+
         holder.jbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,9 +70,46 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                 if (soalQuiz.getPilihan_jawaban1().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn1.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
 
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.truesound);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }
                 else if (!soalQuiz.getPilihan_jawaban1().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn1.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.wrong);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
               holder.jbtn1.postDelayed(new Runnable() {
@@ -92,10 +133,48 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
 
                 if (soalQuiz.getPilihan_jawaban2().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn2.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.truesound);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
 
                 }
                 else if (!soalQuiz.getPilihan_jawaban2().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn2.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.wrong);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
                 holder.jbtn2.postDelayed(new Runnable() {
@@ -117,10 +196,46 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
 
                 if (soalQuiz.getPilihan_jawaban3().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn3.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.truesound);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                 }
                 else if (!soalQuiz.getPilihan_jawaban3().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn3.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.wrong);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
                 holder.jbtn3.postDelayed(new Runnable() {
@@ -143,10 +258,46 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
 
                 if (soalQuiz.getPilihan_jawaban4().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn4.setBackgroundTintList(context.getResources().getColorStateList(R.color.correct));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.truesound);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                 }
                 else if (!soalQuiz.getPilihan_jawaban4().equals(soalQuiz.getKunci_jawaban())){
                     holder.jbtn4.setBackgroundTintList(context.getResources().getColorStateList(R.color.bg_red));
+                    try {
+                        trueFalseSound = MediaPlayer.create(context, R.raw.wrong);
+                        trueFalseSound.start();
+                        trueFalseSound.setLooping(false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (trueFalseSound.isPlaying()){
+                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    }
+
+                    trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
                 holder.jbtn4.postDelayed(new Runnable() {
@@ -165,13 +316,10 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
             Toast.makeText(context, lastPos+"", Toast.LENGTH_SHORT).show();
         }
 
-
-
     }
 
     @Override
     public int getItemCount() {
-
         return soalQuizs.size();
     }
 

@@ -86,7 +86,6 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
             hideSystemUI();
-
         }
     }
 
@@ -221,18 +220,6 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
 
     @Override
     public void onBackPressed() {
-        try {
-            if ( kenalGambarAdapter.kenalSound.isPlaying()){
-                kenalGambarAdapter.kenalSound.stop();
-                if (isFinishing()){
-                    kenalGambarAdapter.kenalSound.stop();
-                    kenalGambarAdapter.kenalSound.release();
-                }
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        super.onBackPressed();
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.kindersmart.Activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,24 +17,26 @@ import com.example.kindersmart.Activity.Model.UserLocalStore;
 import com.example.kindersmart.R;
 
 public class RecentScoreActivity extends AppCompatActivity {
-    private TextView    nilaiScore;
-    private TextView    tekan;
-    private TextView    tvInfoScore;
-    private ImageView   ivRecentScore;
-    private Button      btnPlayAgain;
-    private Button      btnHighScore;
-    private Button      btnMenu;
-    private int         getScoreTebakHewan;
-    private int         getScoreTebakBuah;
-    private int         getScoreTebakOrgan;
-    private int         getScoreTebakWarna;
-    private int         getScorePenjumlahan;
-    private int         getScorePengurangan;
-    private int         getScoreHitungGambar;
-    private int         getScoreTebakAngka;
-    private String      getKategori;
-    private UserLocalStore userLocalStore;
-    private Score       currScore;
+    private TextView        nilaiScore;
+    private TextView        tekan;
+    private TextView        tvInfoScore;
+    private ImageView       ivRecentScore;
+    private Button          btnPlayAgain;
+    private Button          btnHighScore;
+    private Button          btnMenu;
+    private int             getScoreTebakHewan;
+    private int             getScoreTebakBuah;
+    private int             getScoreTebakOrgan;
+    private int             getScoreTebakWarna;
+    private int             getScorePenjumlahan;
+    private int             getScorePengurangan;
+    private int             getScoreHitungGambar;
+    private int             getScoreTebakAngka;
+    private String          getKategori;
+    private UserLocalStore  userLocalStore;
+    private Score           currScore;
+    private MediaPlayer     eggSound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -247,6 +250,9 @@ public class RecentScoreActivity extends AppCompatActivity {
                         .duration(700)
                         .repeat(1)
                         .playOn(ivRecentScore);
+                eggSound = MediaPlayer.create(RecentScoreActivity.this, R.raw.egg_crack);
+                eggSound.start();
+                eggSound.setLooping(true);
 
                 ivRecentScore.postDelayed(new Runnable() {
                     @Override
@@ -259,6 +265,7 @@ public class RecentScoreActivity extends AppCompatActivity {
                         ivRecentScore.postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                eggSound.stop();
                                 ivRecentScore.setVisibility(View.GONE);
                                 tekan.setVisibility(View.GONE);
                                 tvInfoScore.setVisibility(View.GONE);
@@ -266,6 +273,9 @@ public class RecentScoreActivity extends AppCompatActivity {
                                 btnMenu.setVisibility(View.VISIBLE);
                                 btnHighScore.setVisibility(View.VISIBLE);
                                 btnPlayAgain.setVisibility(View.VISIBLE);
+                                eggSound = MediaPlayer.create(RecentScoreActivity.this, R.raw.succes_eeg);
+                                eggSound.start();
+                                eggSound.setLooping(false);
                             }
                         }, 1000);
                     }

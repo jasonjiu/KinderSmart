@@ -103,7 +103,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.sayyes);
+        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.bgmusic);
         bgMusic.start();
         bgMusic.setLooping(true);
     }

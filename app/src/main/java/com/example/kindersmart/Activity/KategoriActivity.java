@@ -252,7 +252,7 @@ public class KategoriActivity extends AppCompatActivity {
     }
 
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.sayyes);
+        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.bgmusic);
         bgMusic.start();
         bgMusic.setLooping(true);
     }
