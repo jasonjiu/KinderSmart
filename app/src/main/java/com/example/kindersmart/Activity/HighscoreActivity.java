@@ -19,22 +19,6 @@ import com.example.kindersmart.Activity.Model.UserLocalStore;
 import com.example.kindersmart.R;
 
 public class HighscoreActivity extends AppCompatActivity {
-    private ImageView       ivHewan;
-    private ImageView       ivBuah;
-    private ImageView       ivOrgan;
-    private ImageView       ivWarna;
-    private ImageView       ivPenjumlahan;
-    private ImageView       ivPengurangan;
-    private ImageView       ivHitungGambar;
-    private ImageView       ivTebakAngka;
-    private TextView        tvHewan;
-    private TextView        tvBuah;
-    private TextView        tvOrgan;
-    private TextView        tvWarna;
-    private TextView        tvPenjumlahan;
-    private TextView        tvPengurangan;
-    private TextView        tvHitungGambar;
-    private TextView        tvTebakAngka;
     private Score           highScore;
     private UserLocalStore  userLocalStore;
     private ImageView       ivTb;
@@ -48,8 +32,6 @@ public class HighscoreActivity extends AppCompatActivity {
         highScore = userLocalStore.getUserScore();
         init();
         toolbar();
-
-        setIcon();
     }
 
     @Override
@@ -77,22 +59,22 @@ public class HighscoreActivity extends AppCompatActivity {
 
 
     public void init(){
-        ivHewan         = findViewById(R.id.ivHsHewan);
-        ivBuah          = findViewById(R.id.ivHsBuah);
-        ivOrgan         = findViewById(R.id.ivHsOrgan);
-        ivWarna         = findViewById(R.id.ivHsWarna);
-        ivPenjumlahan   = findViewById(R.id.ivHsPenjumlahan);
-        ivPengurangan   = findViewById(R.id.ivHsPengurangan);
-        ivHitungGambar  = findViewById(R.id.ivHsHitungGambar);
-        ivTebakAngka    = findViewById(R.id.ivHsTebakAngka);
-        tvHewan         = findViewById(R.id.tvHsHewan);
-        tvBuah          = findViewById(R.id.tvHsBuah);
-        tvOrgan         = findViewById(R.id.tvHsOrgan);
-        tvWarna         = findViewById(R.id.tvHsWarna);
-        tvPenjumlahan   = findViewById(R.id.tvHsPenjumlahan);
-        tvPengurangan   = findViewById(R.id.tvHsPengurangan);
-        tvHitungGambar  = findViewById(R.id.tvHsHitungGambar);
-        tvTebakAngka    = findViewById(R.id.tvHsTebakAngka);
+        ImageView ivHewan         = findViewById(R.id.ivHsHewan);
+        ImageView ivBuah          = findViewById(R.id.ivHsBuah);
+        ImageView ivOrgan         = findViewById(R.id.ivHsOrgan);
+        ImageView ivWarna         = findViewById(R.id.ivHsWarna);
+        ImageView ivPenjumlahan   = findViewById(R.id.ivHsPenjumlahan);
+        ImageView ivPengurangan   = findViewById(R.id.ivHsPengurangan);
+        ImageView ivHitungGambar  = findViewById(R.id.ivHsHitungGambar);
+        ImageView ivTebakAngka    = findViewById(R.id.ivHsTebakAngka);
+        TextView tvHewan         = findViewById(R.id.tvHsHewan);
+        TextView tvBuah          = findViewById(R.id.tvHsBuah);
+        TextView tvOrgan         = findViewById(R.id.tvHsOrgan);
+        TextView tvWarna         = findViewById(R.id.tvHsWarna);
+        TextView tvPenjumlahan   = findViewById(R.id.tvHsPenjumlahan);
+        TextView tvPengurangan   = findViewById(R.id.tvHsPengurangan);
+        TextView tvHitungGambar  = findViewById(R.id.tvHsHitungGambar);
+        TextView tvTebakAngka    = findViewById(R.id.tvHsTebakAngka);
 
         tvHewan.setText(highScore.tebakHewanScore+"");
         tvBuah.setText(highScore.tebakBuahScore+"");
@@ -102,30 +84,6 @@ public class HighscoreActivity extends AppCompatActivity {
         tvPengurangan.setText(highScore.penguranganScore+"");
         tvHitungGambar.setText(highScore.hitungGambarScore+"");
         tvTebakAngka.setText(highScore.tebakAngkaScore+"");
-
-    }
-
-    public void toolbar(){
-        Toolbar mToolbar = findViewById(R.id.tbHighScore);
-        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
-        ivTb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                YoYo.with(Techniques.RubberBand)
-                        .duration(500)
-                        .repeat(2)
-                        .playOn(ivTb);
-                ivTb.setEnabled(false);
-                Intent intent = new Intent(HighscoreActivity.this, MenuActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-    }
-
-
-    public void setIcon(){
 
         //hewan
         if (highScore.tebakHewanScore == 0){
@@ -200,7 +158,7 @@ public class HighscoreActivity extends AppCompatActivity {
         //pengurangan
         if (highScore.penguranganScore == 0){
 
-       }
+        }
         else if (highScore.penguranganScore == 10){
 
         }
@@ -238,6 +196,30 @@ public class HighscoreActivity extends AppCompatActivity {
         else if (highScore.tebakAngkaScore == 100){
 
         }
+
+    }
+
+    public void toolbar(){
+        Toolbar mToolbar = findViewById(R.id.tbHighScore);
+        ivTb             = mToolbar.findViewById(R.id.ivtbExit);
+        ivTb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(ivTb);
+                ivTb.setEnabled(false);
+                Intent intent = new Intent(HighscoreActivity.this, MenuActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

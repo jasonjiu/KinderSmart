@@ -35,7 +35,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
         this.soalQuizs = soalQuizs;
     }
 
-    public void setTebakGambarAdapter(OnImageClickListener onImageClickListener) {
+    public void setQuizAdapter(OnImageClickListener onImageClickListener) {
         this.onImageClickListener = onImageClickListener;
     }
 
