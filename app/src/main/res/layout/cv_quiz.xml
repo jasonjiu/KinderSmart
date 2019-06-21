@@ -43,7 +43,7 @@
                     android:layout_centerInParent="true"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:background="@drawable/border" />
+                    android:background="@drawable/backgroundimage" />
 
                 <ImageView
                     android:id="@+id/ivSoalTebakGambar"

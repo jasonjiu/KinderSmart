@@ -5,12 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green"
+    android:background="@drawable/backgroundimage"
     tools:context=".Activity.KategoriActivity">
 
 
     <android.support.v4.widget.NestedScrollView
-        android:background="@drawable/chalkboard_border"
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingBottom="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="@string/tebak_gambar"
             android:textColor="@color/chalk"
             android:textSize="16dp"
@@ -57,8 +56,8 @@
                 android:id="@+id/ivTebakHewan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/binatang"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -84,8 +83,8 @@
                 android:id="@+id/ivTebakBentuk"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/buah"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -111,8 +110,8 @@
                 android:id="@+id/ivTebakWarna"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/organ"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -138,8 +137,8 @@
                android:id="@+id/ivTebakAngka"
                android:layout_width="80dp"
                android:layout_height="80dp"
-               android:background="@drawable/border"
-               android:src="@drawable/egg"
+               android:background="@drawable/backgroundimage"
+               android:src="@drawable/warna"
                android:padding="10dp"
                android:scaleType="fitCenter"/>
 
@@ -156,6 +155,8 @@
     </LinearLayout>
 
         <View
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_marginBottom="10dp"
@@ -195,8 +196,8 @@
                 android:id="@+id/ivKenalHewan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/mengenal_hewan2"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -222,8 +223,8 @@
                 android:id="@+id/ivKenalAngka"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/mengenal_buah"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -249,8 +250,8 @@
                 android:id="@+id/ivKenalBentuk"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/mengenal_organ"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -276,8 +277,8 @@
                 android:id="@+id/ivKenalWarna"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/mengenal_warna"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -295,6 +296,8 @@
     </LinearLayout>
 
         <View
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_marginBottom="10dp"
@@ -334,8 +337,8 @@
                 android:id="@+id/ivPenjumlahan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/pertambahan1"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -361,8 +364,8 @@
                 android:id="@+id/ivPengurangan"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/pengurangan"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -371,7 +374,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
-
                 android:layout_height="wrap_content"
                 android:text="@string/pengurangan"/>
 
@@ -389,8 +391,8 @@
                 android:id="@+id/ivPerkalian"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/hitung_gambar"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -417,8 +419,8 @@
                 android:id="@+id/ivPembagian"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/border"
-                android:src="@drawable/egg"
+                android:background="@drawable/backgroundimage"
+                android:src="@drawable/belajar_angka"
                 android:padding="10dp"
                 android:scaleType="fitCenter"/>
 
@@ -437,9 +439,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="6dp">
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="40dp">
 
             <LinearLayout
                 android:id="@+id/linearBack2menu"

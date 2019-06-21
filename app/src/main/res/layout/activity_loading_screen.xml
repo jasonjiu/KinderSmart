@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loadingbg"
+    android:background="@drawable/backgroundimage"
     tools:context=".Activity.LoadingScreen">
 
 
@@ -16,8 +16,12 @@
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         app:lottie_autoPlay="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="10dp"
+        app:lottie_colorFilter="@color/chalk"
+        android:layout_marginEnd="10dp"
         app:lottie_enableMergePathsForKitKatAndAbove="true"
-        app:lottie_fileName="buss.json"
+        app:lottie_fileName="buss2.json"
         app:lottie_loop="true"/>
 
 

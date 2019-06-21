@@ -17,6 +17,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.example.kindersmart.Activity.Model.Score;
 import com.example.kindersmart.Activity.Model.UserLocalStore;
 import com.example.kindersmart.R;
+import com.squareup.picasso.Picasso;
 
 public class HighscoreActivity extends AppCompatActivity {
     private Score           highScore;
@@ -76,125 +77,157 @@ public class HighscoreActivity extends AppCompatActivity {
         TextView tvHitungGambar  = findViewById(R.id.tvHsHitungGambar);
         TextView tvTebakAngka    = findViewById(R.id.tvHsTebakAngka);
 
-        tvHewan.setText(highScore.tebakHewanScore+"");
-        tvBuah.setText(highScore.tebakBuahScore+"");
-        tvOrgan.setText(highScore.tebakOrganScore+"");
-        tvWarna.setText(highScore.tebakWarnaScore+"");
-        tvPenjumlahan.setText(highScore.penjumlahanScore+"");
-        tvPengurangan.setText(highScore.penguranganScore+"");
-        tvHitungGambar.setText(highScore.hitungGambarScore+"");
-        tvTebakAngka.setText(highScore.tebakAngkaScore+"");
+
+
+        if (highScore.tebakHewanScore == 1){
+            tvHewan.setText(0+"");
+        }
+        else {
+            tvHewan.setText(highScore.tebakHewanScore+"");
+        }
+
+        if (highScore.tebakBuahScore == 1){
+            tvBuah.setText(0+"");
+        }
+        else {
+            tvBuah.setText(highScore.tebakBuahScore+"");
+        }
+
+        if (highScore.tebakOrganScore == 1){
+            tvOrgan.setText(0+"");
+        }
+        else {
+            tvOrgan.setText(highScore.tebakOrganScore+"");
+
+        }
+
+        if (highScore.tebakWarnaScore == 1){
+            tvWarna.setText(0+"");
+        }
+        else {
+            tvWarna.setText(highScore.tebakWarnaScore+"");
+        }
+
+        if (highScore.penjumlahanScore == 1){
+            tvPenjumlahan.setText(0+"");
+        }
+        else {
+            tvPenjumlahan.setText(highScore.penjumlahanScore+"");
+        }
+
+        if (highScore.penguranganScore == 1){
+            tvPengurangan.setText(0+"");
+        }
+        else {
+            tvPengurangan.setText(highScore.penguranganScore+"");
+
+        }
+
+        if (highScore.hitungGambarScore == 1){
+            tvHitungGambar.setText(0+"");
+        }
+        else {
+            tvHitungGambar.setText(highScore.hitungGambarScore+"");
+        }
+
+        if (highScore.tebakAngkaScore == 1){
+            tvTebakAngka.setText(0+"");
+        }
+        else {
+            tvTebakAngka.setText(highScore.tebakAngkaScore+"");
+        }
 
         //hewan
-        if (highScore.tebakHewanScore == 0){
-
+        if(highScore.tebakHewanScore == 10 ||  highScore.tebakHewanScore == 20 ||  highScore.tebakHewanScore == 30 ||  highScore.tebakHewanScore == 40 ){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivHewan);
         }
-        else if (highScore.tebakHewanScore == 10){
-
+        else if (highScore.tebakHewanScore == 50 ||  highScore.tebakHewanScore == 60 ||  highScore.tebakHewanScore == 70 ||  highScore.tebakHewanScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivHewan);
         }
-        else if (highScore.tebakHewanScore >= 50){
-
+        else if(highScore.tebakHewanScore == 90 ||  highScore.tebakHewanScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivHewan);
         }
-        else if (highScore.tebakHewanScore == 100){
 
-        }
 
         //buah
-        if (highScore.tebakBuahScore == 0){
+        if(highScore.tebakBuahScore == 10 ||  highScore.tebakBuahScore == 20 ||  highScore.tebakBuahScore == 30 ||  highScore.tebakBuahScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivBuah);
+        }
+        else if (highScore.tebakBuahScore == 50 ||  highScore.tebakBuahScore == 60 ||  highScore.tebakBuahScore == 70 ||  highScore.tebakBuahScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivBuah);
+        }
+        else if(highScore.tebakBuahScore == 90 ||  highScore.tebakBuahScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivBuah);
 
         }
-        else if (highScore.tebakBuahScore == 10){
 
-        }
-        else if (highScore.tebakBuahScore >= 50){
-
-        }
-        else if (highScore.tebakBuahScore == 100){
-
-        }
 
         //organ
-        if (highScore.tebakOrganScore == 0){
-
+        if(highScore.tebakOrganScore == 10 ||  highScore.tebakOrganScore == 20 ||  highScore.tebakOrganScore == 30 ||  highScore.tebakOrganScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivOrgan);
         }
-        else if (highScore.tebakOrganScore == 10){
-
+        else if (highScore.tebakOrganScore == 50 ||  highScore.tebakOrganScore == 60 ||  highScore.tebakOrganScore == 70 ||  highScore.tebakOrganScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivOrgan);
         }
-        else if (highScore.tebakOrganScore >= 50){
-
-        }
-        else if (highScore.tebakOrganScore == 100){
+        else if(highScore.tebakOrganScore == 90 ||  highScore.tebakOrganScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivOrgan);
 
         }
 
         //warna
-        if (highScore.tebakWarnaScore == 0){
-
+        if(highScore.tebakWarnaScore == 10 ||  highScore.tebakWarnaScore == 20  ||  highScore.tebakWarnaScore == 30 ||  highScore.tebakWarnaScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivWarna);
         }
-        else if (highScore.tebakWarnaScore == 10){
-
+        else if (highScore.tebakWarnaScore == 50 ||  highScore.tebakWarnaScore == 60 ||  highScore.tebakWarnaScore == 70 ||  highScore.tebakWarnaScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivWarna);
         }
-        else if (highScore.tebakWarnaScore >= 50){
-
+        else if(highScore.tebakWarnaScore == 90 ||  highScore.tebakWarnaScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivWarna);
         }
-        else if (highScore.tebakWarnaScore == 100){
 
-        }
 
         //penjumlahan
-        if (highScore.penjumlahanScore == 0){
-
+        if(highScore.penjumlahanScore == 10 ||  highScore.penjumlahanScore == 20  ||  highScore.penjumlahanScore == 30  ||  highScore.penjumlahanScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivPenjumlahan);
         }
-        else if (highScore.penjumlahanScore == 10){
-
+        else if (highScore.penjumlahanScore == 50  ||  highScore.penjumlahanScore == 60  ||  highScore.penjumlahanScore == 70  ||  highScore.penjumlahanScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivPenjumlahan);
         }
-        else if (highScore.penjumlahanScore >= 50){
-
-        }
-        else if (highScore.penjumlahanScore == 100){
-
+        else if(highScore.penjumlahanScore == 90  ||  highScore.penjumlahanScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivPenjumlahan);
         }
 
         //pengurangan
-        if (highScore.penguranganScore == 0){
-
+        if(highScore.penguranganScore == 10 ||  highScore.penguranganScore == 20 ||  highScore.penguranganScore == 30 ||  highScore.penguranganScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivPengurangan);
         }
-        else if (highScore.penguranganScore == 10){
-
+        else if (highScore.penguranganScore == 50 ||  highScore.penguranganScore == 60 ||  highScore.penguranganScore == 70 ||  highScore.penguranganScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivPengurangan);
         }
-        else if (highScore.penguranganScore >= 50){
-
-        }
-        else if (highScore.penguranganScore == 100){
-
+        else if(highScore.penguranganScore == 90 ||  highScore.penguranganScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivPengurangan);
         }
 
         //hitung gambar
-        if (highScore.hitungGambarScore == 0){
-
+        if(highScore.hitungGambarScore == 10 ||  highScore.hitungGambarScore == 20 ||  highScore.hitungGambarScore == 30 ||  highScore.hitungGambarScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivHitungGambar);
         }
-        else if (highScore.hitungGambarScore == 10){
-
+        else if (highScore.hitungGambarScore == 50 ||  highScore.hitungGambarScore == 60 ||  highScore.hitungGambarScore == 70 ||  highScore.hitungGambarScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivHitungGambar);
         }
-        else if (highScore.hitungGambarScore >= 50){
-
-        }
-        else if (highScore.hitungGambarScore == 100){
-
+        else if(highScore.hitungGambarScore == 90 ||  highScore.hitungGambarScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivHitungGambar);
         }
 
         //tebak angka
-        if (highScore.tebakAngkaScore == 0){
-
+        if(highScore.tebakAngkaScore == 10 ||  highScore.tebakAngkaScore == 20 ||  highScore.tebakAngkaScore == 30 ||  highScore.tebakAngkaScore == 40){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_bronze).into(ivTebakAngka);
         }
-        else if (highScore.tebakAngkaScore == 10){
-
+        else if (highScore.tebakAngkaScore == 50 ||  highScore.tebakAngkaScore == 60 ||  highScore.tebakAngkaScore == 70 ||  highScore.tebakAngkaScore == 80){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_silver).into(ivTebakAngka);
         }
-        else if (highScore.tebakAngkaScore >= 50){
-
-        }
-        else if (highScore.tebakAngkaScore == 100){
-
+        else if(highScore.tebakAngkaScore == 90 ||  highScore.tebakAngkaScore == 100){
+            Picasso.with(getApplicationContext()).load(R.drawable.thropy_gold).into(ivTebakAngka);
         }
 
     }

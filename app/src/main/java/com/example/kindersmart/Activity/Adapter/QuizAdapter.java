@@ -79,13 +79,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -101,13 +101,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -142,14 +142,14 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
 
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
 
                         }
                     });
@@ -166,13 +166,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                      //      Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -205,13 +205,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -227,13 +227,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -267,13 +267,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                   //     Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                       //     Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -289,13 +289,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                     }
 
                     if (trueFalseSound.isPlaying()){
-                        Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                     }
 
                     trueFalseSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
-                            Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -313,7 +313,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
             holder.jbtn2.setEnabled(true);
             holder.jbtn3.setEnabled(true);
             holder.jbtn4.setEnabled(true);
-            Toast.makeText(context, lastPos+"", Toast.LENGTH_SHORT).show();
         }
 
     }
