@@ -197,4 +197,9 @@ public class VideoEdukasiActivity extends AppCompatActivity {
         queue.add(rec);
 
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

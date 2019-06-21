@@ -45,9 +45,9 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
     private RecyclerView                rvSoal;
     private Context                     context;
     private RequestQueue                queue;
-    private QuizAdapter quizAdapter;
-    private List<SoalQuiz> soalQuizList = new ArrayList<>();
-    private CustomLinearLayoutManager   lm;
+    private QuizAdapter                 quizAdapter;
+    private List<SoalQuiz>              soalQuizList = new ArrayList<>();
+    private CustomLinearLayoutManager   layoutManager;
     private int                         score = 0;
     private TextView                    tvTb;
     private ImageView                   ivTb;
@@ -68,9 +68,9 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
         queue               = Volley.newRequestQueue(context);
         rvSoal              = findViewById(R.id.rvSoalTebak);
         loading             = findViewById(R.id.loadingAnimation);
-        lm                  = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
-        lm.setScrollEnabled(false);
-        rvSoal.setLayoutManager(lm);
+        layoutManager = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
+        layoutManager.setScrollEnabled(false);
+        rvSoal.setLayoutManager(layoutManager);
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -194,7 +194,7 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
                                     }
                                     quizAdapter = new QuizAdapter(context);
                                     quizAdapter.setSoalQuizs(soalQuizList);
-                                    quizAdapter.setTebakGambarAdapter((OnImageClickListener) context);
+                                    quizAdapter.setQuizAdapter((OnImageClickListener) context);
                                     rvSoal.setAdapter(quizAdapter);
 
 

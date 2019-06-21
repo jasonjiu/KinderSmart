@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_gravity="center"
-    android:background="@color/bg_red"
+    android:background="@drawable/backgroundimage"
     android:layout_height="match_parent"
     tools:context=".Activity.MenuActivity">
 
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:textColor="@color/red"
+            android:textColor="@color/bg_red"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/exit"/>

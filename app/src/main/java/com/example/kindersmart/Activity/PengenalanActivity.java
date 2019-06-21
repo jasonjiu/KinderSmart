@@ -44,8 +44,8 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     private String                      getKategoriExtra, getNamaPengenalan;
     private Context                     context;
     private RequestQueue                queue;
-    private CustomLinearLayoutManager   lm;
-    private RecyclerView                rv;
+    private CustomLinearLayoutManager   layoutManager;
+    private RecyclerView                rvKenal;
     private KenalGambarAdapter          kenalGambarAdapter;
     private List<Mengenal>              mengenalList = new ArrayList<>();
     private AlertDialog                 alertDialog;
@@ -66,11 +66,11 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         getKategoriExtra    = intent.getStringExtra("Kategori_Kenal");
         getNamaPengenalan   = intent.getStringExtra("kenal");
         queue               = Volley.newRequestQueue(context);
-        rv                  = findViewById(R.id.rvKenal);
+        rvKenal = findViewById(R.id.rvKenal);
         loading             = findViewById(R.id.loadingAnimation);
-        lm                  = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
-        lm.setScrollEnabled(false);
-        rv.setLayoutManager(lm);
+        layoutManager = new CustomLinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
+        layoutManager.setScrollEnabled(false);
+        rvKenal.setLayoutManager(layoutManager);
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -86,7 +86,6 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
             hideSystemUI();
-
         }
     }
 
@@ -174,7 +173,7 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
                                     for (int i = 0; i < listSoal.length(); i++) {
                                         try {
                                             loading.setVisibility(View.GONE);
-                                            rv.setVisibility(View.VISIBLE);
+                                            rvKenal.setVisibility(View.VISIBLE);
                                             final JSONObject obj = listSoal.getJSONObject(i);
 
                                             mengenalList.add(new Mengenal(
@@ -190,7 +189,7 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
                                     kenalGambarAdapter = new KenalGambarAdapter(context);
                                     kenalGambarAdapter.setMengenalList(mengenalList);
                                     kenalGambarAdapter.setOnImageClickListener((OnImageClickListener) context);
-                                    rv.setAdapter(kenalGambarAdapter);
+                                    rvKenal.setAdapter(kenalGambarAdapter);
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -212,27 +211,15 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
     @Override
     public void onImageClick(String data, int position) {
         if (data.equals("back")){
-            rv.getLayoutManager().scrollToPosition(position - 1);
+            rvKenal.getLayoutManager().scrollToPosition(position - 1);
         }
         else if (data.equals("next")){
-            rv.getLayoutManager().scrollToPosition(position + 1);
+            rvKenal.getLayoutManager().scrollToPosition(position + 1);
         }
     }
 
     @Override
     public void onBackPressed() {
-        try {
-            if ( kenalGambarAdapter.kenalSound.isPlaying()){
-                kenalGambarAdapter.kenalSound.stop();
-                if (isFinishing()){
-                    kenalGambarAdapter.kenalSound.stop();
-                    kenalGambarAdapter.kenalSound.release();
-                }
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        super.onBackPressed();
 
     }
 

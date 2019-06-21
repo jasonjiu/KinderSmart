@@ -14,37 +14,30 @@ import com.example.kindersmart.R;
 
 public class KategoriActivity extends AppCompatActivity {
 
-    private LinearLayout    tebakhewanll, tebakangkall, tebakbentukll, tebakwarnall,
-                            kenalhewanll, kenalangkall, kenalbentukll, kenalwarnall,
-                            penjumlahall, penguranganll, perkalianll, pembagianll;
+    private LinearLayout    tebakHewan, tebakBuah, tebakOrgan, tebakWarna,
+                            mengenalHewan, mengenalBuah, mengenalOrgan, mengenalWarna,
+                            penjumlahan, pengurangan, hitungGambar, belajarAngka;
     private LinearLayout    backLayout;
     private MediaPlayer     bgMusic;
-    private Score           currScore;
-    private UserLocalStore  userLocalStore;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategory);
-        userLocalStore = new UserLocalStore(this);
-        currScore = userLocalStore.getUserScore();
-        Log.d("skornyahewan", currScore.tebakHewanScore+"");
-        Log.d("skornyabuah", currScore.tebakBuahScore+"");
-        Log.d("skornyaorgan", currScore.tebakOrganScore+"");
-        Log.d("skornyawarna", currScore.tebakWarnaScore+"");
-        setTebakhewanll();
-        setTebakangkall();
-        setTebakbentukll();
-        setTebakwarnall();
-        setKenalhewanll();
-        setKenalangkall();
-        setKenalbentukll();
-        setKenalwarnall();
-        setPenjumlahall();
-        setPenguranganll();
-        setPerkalianll();
-        setPembagianll();
+
+        setTebakhewan();
+        setTebakBuah();
+        setTebakOrgan();
+        setTebakWarna();
+        setKenalHewan();
+        setKenalBuah();
+        setKenalOrgan();
+        setKenalWarna();
+        setPenjumlahan();
+        setPengurangan();
+        setHitungGambar();
+        setBelajarAngka();
         setIvBack();
     }
 
@@ -71,12 +64,12 @@ public class KategoriActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void setTebakhewanll(){
-        tebakhewanll = findViewById(R.id.llTebakHewan);
-        tebakhewanll.setOnClickListener(new View.OnClickListener() {
+    public void setTebakhewan(){
+        tebakHewan = findViewById(R.id.llTebakHewan);
+        tebakHewan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tebakangkall.setClickable(false);
+                tebakBuah.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "1");
@@ -86,42 +79,42 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setTebakangkall(){
-        tebakangkall = findViewById(R.id.llTebakAngka);
-        tebakangkall.setOnClickListener(new View.OnClickListener() {
+    public void setTebakBuah(){
+        tebakBuah = findViewById(R.id.llTebakAngka);
+        tebakBuah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tebakangkall.setClickable(false);
+                tebakBuah.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "2");
-                intent.putExtra("tebak", "Tebak Angka");
+                intent.putExtra("tebak", "Tebak Buah");
                 startActivity(intent);
                 finish();
             }
         });
     }
-    public void setTebakbentukll(){
-        tebakbentukll = findViewById(R.id.llTebakBentuk);
-        tebakbentukll.setOnClickListener(new View.OnClickListener() {
+    public void setTebakOrgan(){
+        tebakOrgan = findViewById(R.id.llTebakBentuk);
+        tebakOrgan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tebakbentukll.setClickable(false);
+                tebakOrgan.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "3");
-                intent.putExtra("tebak", "Tebak Bentuk");
+                intent.putExtra("tebak", "Tebak Organ");
                 startActivity(intent);
                 finish();
             }
         });
     }
-    public void setTebakwarnall(){
-        tebakwarnall = findViewById(R.id.llTebakWarna);
-        tebakwarnall.setOnClickListener(new View.OnClickListener() {
+    public void setTebakWarna(){
+        tebakWarna = findViewById(R.id.llTebakWarna);
+        tebakWarna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tebakwarnall.setClickable(false);
+                tebakWarna.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "4");
@@ -131,12 +124,12 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setKenalhewanll(){
-        kenalhewanll = findViewById(R.id.llKenalHewan);
-        kenalhewanll.setOnClickListener(new View.OnClickListener() {
+    public void setKenalHewan(){
+        mengenalHewan = findViewById(R.id.llKenalHewan);
+        mengenalHewan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kenalhewanll.setClickable(false);
+                mengenalHewan.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "9");
@@ -146,39 +139,39 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setKenalangkall(){
-        kenalangkall = findViewById(R.id.llKenalAngka);
-        kenalangkall.setOnClickListener(new View.OnClickListener() {
+    public void setKenalBuah(){
+        mengenalBuah = findViewById(R.id.llKenalAngka);
+        mengenalBuah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kenalangkall.setClickable(false);
+                mengenalBuah.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "10");
-                intent.putExtra("kenal", "Mengenal Angka");
+                intent.putExtra("kenal", "Mengenal Buah");
                 startActivity(intent);
                 finish();
             }
         });
     }
-    public void setKenalbentukll(){
-        kenalbentukll = findViewById(R.id.llKenalBentuk);
-        kenalbentukll.setOnClickListener(new View.OnClickListener() {
+    public void setKenalOrgan(){
+        mengenalOrgan = findViewById(R.id.llKenalBentuk);
+        mengenalOrgan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kenalbentukll.setClickable(false);
+                mengenalOrgan.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Kenal", "11");
-                intent.putExtra("kenal", "Mengenal Bentuk");
+                intent.putExtra("kenal", "Mengenal Organ");
                 startActivity(intent);
                 finish();
             }
         });
     }
-    public void setKenalwarnall(){
-        kenalwarnall = findViewById(R.id.llKenalWarna);
-        kenalwarnall.setOnClickListener(new View.OnClickListener() {
+    public void setKenalWarna(){
+        mengenalWarna = findViewById(R.id.llKenalWarna);
+        mengenalWarna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KategoriActivity.this, PengenalanActivity.class);
@@ -190,12 +183,12 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setPenjumlahall(){
-        penjumlahall = findViewById(R.id.llPenjumlahan);
-        penjumlahall.setOnClickListener(new View.OnClickListener() {
+    public void setPenjumlahan(){
+        penjumlahan = findViewById(R.id.llPenjumlahan);
+        penjumlahan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                penjumlahall.setClickable(false);
+                penjumlahan.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "5");
@@ -205,12 +198,12 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setPenguranganll(){
-        penguranganll = findViewById(R.id.llPengurangan);
-        penguranganll.setOnClickListener(new View.OnClickListener() {
+    public void setPengurangan(){
+        pengurangan = findViewById(R.id.llPengurangan);
+        pengurangan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                penguranganll.setClickable(false);
+                pengurangan.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "6");
@@ -220,31 +213,31 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-    public void setPerkalianll(){
-        perkalianll = findViewById(R.id.llPerkalian);
-        perkalianll.setOnClickListener(new View.OnClickListener() {
+    public void setHitungGambar(){
+        hitungGambar = findViewById(R.id.llPerkalian);
+        hitungGambar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                perkalianll.setClickable(false);
+                hitungGambar.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "7");
-                intent.putExtra("tebak","Perkalian");
+                intent.putExtra("tebak","Hitung Gambar");
                 startActivity(intent);
                 finish();
             }
         });
     }
-    public void setPembagianll(){
-        pembagianll = findViewById(R.id.llPembagian);
-        pembagianll.setOnClickListener(new View.OnClickListener() {
+    public void setBelajarAngka(){
+        belajarAngka = findViewById(R.id.llPembagian);
+        belajarAngka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pembagianll.setClickable(false);
+                belajarAngka.setClickable(false);
                 Intent intent = new Intent(KategoriActivity.this, QuizActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("Kategori_Tebak", "8");
-                intent.putExtra("tebak","Pembagian");
+                intent.putExtra("tebak","Belajar Angka");
                 startActivity(intent);
                 finish();
             }
@@ -252,7 +245,7 @@ public class KategoriActivity extends AppCompatActivity {
     }
 
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.sayyes);
+        bgMusic = MediaPlayer.create(KategoriActivity.this, R.raw.bgmusic);
         bgMusic.start();
         bgMusic.setLooping(true);
     }
@@ -302,18 +295,18 @@ public class KategoriActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         playBackgroundMusic();
-        tebakhewanll.setClickable(true);
-        tebakangkall.setClickable(true);
-        tebakbentukll.setClickable(true);
-        tebakwarnall.setClickable(true);
-        kenalhewanll.setClickable(true);
-        kenalangkall.setClickable(true);
-        kenalbentukll.setClickable(true);
-        kenalwarnall.setClickable(true);
-        penjumlahall.setClickable(true);
-        penguranganll.setClickable(true);
-        perkalianll.setClickable(true);
-        pembagianll.setClickable(true);
+        tebakHewan.setClickable(true);
+        tebakBuah.setClickable(true);
+        tebakOrgan.setClickable(true);
+        tebakWarna.setClickable(true);
+        mengenalHewan.setClickable(true);
+        mengenalBuah.setClickable(true);
+        mengenalOrgan.setClickable(true);
+        mengenalWarna.setClickable(true);
+        penjumlahan.setClickable(true);
+        pengurangan.setClickable(true);
+        hitungGambar.setClickable(true);
+        belajarAngka.setClickable(true);
         backLayout.setClickable(true);
         super.onResume();
     }

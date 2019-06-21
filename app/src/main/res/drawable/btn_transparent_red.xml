@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <!--apply button background transparent, full opacity-->
             <solid android:color="#4DFFFFFF"/>
-            <stroke android:color="#cc2023" android:width="1dp"/>
+            <stroke android:color="#F86B6B" android:width="1dp"/>
             <!--make button border solid color, nontransparent-->
             <corners android:radius="10dp"/>
         </shape>
@@ -14,7 +14,7 @@
         <shape android:shape="rectangle">
             <!--apply button background transparent, full opacity-->
             <solid android:color="#26FFFFFF"/>
-            <stroke android:color="#cc2023" android:width="1dp"/>
+            <stroke android:color="#F86B6B" android:width="1dp"/>
             <!--make button border solid color, nontransparent-->
             <corners android:radius="10dp"/>
         </shape>

@@ -12,9 +12,10 @@ import com.example.kindersmart.R;
 
 public class LoadingScreen extends AppCompatActivity {
 
-    private int SLEEP_TIMER = 3;
-    private LottieAnimationView lottieAnimationView;
+    private int                 SLEEP_TIMER  = 3;
+    private LottieAnimationView animationView;
     private String              getLoading;
+    private Logo                logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,8 @@ public class LoadingScreen extends AppCompatActivity {
         setContentView(R.layout.activity_loading_screen);
         Intent intent           = getIntent();
         getLoading              = intent.getStringExtra("loading");
-        lottieAnimationView     = findViewById(R.id.animation_view);
-        Logo logo = new Logo();
+        animationView           = findViewById(R.id.animation_view);
+        logo = new Logo();
         logo.start();
     }
 

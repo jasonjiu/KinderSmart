@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.example.kindersmart.R;
 
 public class MenuActivity extends AppCompatActivity {
-    private Button      startbtn, helpbtn, exitbtn, highscoreBtn;
+    private Button      startBtn, videoedukasiBtn, exitBtn, highscoreBtn;
     private Context     context;
     private MediaPlayer bgMusic;
     private AlertDialog alertDialog;
@@ -59,11 +59,11 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public void startGame(){
-        startbtn = findViewById(R.id.ibStartGame);
-        startbtn.setOnClickListener(new View.OnClickListener() {
+        startBtn = findViewById(R.id.ibStartGame);
+        startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startbtn.setEnabled(false);
+                startBtn.setEnabled(false);
                 Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "start");
@@ -74,11 +74,11 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void videoEdukasi(){
-        helpbtn = findViewById(R.id.ibTutorial);
-        helpbtn.setOnClickListener(new View.OnClickListener() {
+        videoedukasiBtn = findViewById(R.id.ibTutorial);
+        videoedukasiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helpbtn.setEnabled(false);
+                videoedukasiBtn.setEnabled(false);
                 Intent intent = new Intent(MenuActivity.this, LoadingScreen.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("loading", "video");
@@ -103,7 +103,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void playBackgroundMusic(){
-        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.sayyes);
+        bgMusic = MediaPlayer.create(MenuActivity.this, R.raw.bgmusic);
         bgMusic.start();
         bgMusic.setLooping(true);
     }
@@ -131,7 +131,7 @@ public class MenuActivity extends AppCompatActivity {
         alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
-        exitbtn.setEnabled(true);
+        exitBtn.setEnabled(true);
 
         tvDialog1.setText(getResources().getString(R.string.keluar_permainan));
         tvDialog2.setText(getResources().getString(R.string.confirm_exit));
@@ -156,11 +156,11 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void exitGame(){
-        exitbtn = findViewById(R.id.ibExit);
-        exitbtn.setOnClickListener(new View.OnClickListener() {
+        exitBtn = findViewById(R.id.ibExit);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                exitbtn.setEnabled(false);
+                exitBtn.setEnabled(false);
                 exitDialog(R.layout.dialog_exit);
             }
         });
@@ -186,9 +186,9 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         playBackgroundMusic();
-        exitbtn.setEnabled(true);
-        startbtn.setEnabled(true);
-        helpbtn.setEnabled(true);
+        exitBtn.setEnabled(true);
+        startBtn.setEnabled(true);
+        videoedukasiBtn.setEnabled(true);
         highscoreBtn.setEnabled(true);
         super.onResume();
     }

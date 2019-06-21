@@ -44,5 +44,6 @@
     <string name="confrim_2menu">Apakah Anda Yakin Untuk Kembali Ke Menu ?</string>
     <string name="stop_playing">Berhenti Bermain ?</string>
     <string name="confrim_stop_playing">Apakah Anda Yakin Untuk Berhenti Bermain ?</string>
+    <string name="Koneksi_error">Mohon Maaf Terjadi Kendala Koneksi Silahkan Periksa Koneksi Internet Anda</string>
 
 </resources>
