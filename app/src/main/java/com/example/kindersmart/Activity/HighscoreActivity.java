@@ -2,7 +2,9 @@ package com.example.kindersmart.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,6 +83,8 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.tebakHewanScore == 1){
             tvHewan.setText(0+"");
+            ivHewan.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivHewan);
         }
         else {
             tvHewan.setText(highScore.tebakHewanScore+"");
@@ -88,6 +92,8 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.tebakBuahScore == 1){
             tvBuah.setText(0+"");
+            ivBuah.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivBuah);
         }
         else {
             tvBuah.setText(highScore.tebakBuahScore+"");
@@ -95,6 +101,8 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.tebakOrganScore == 1){
             tvOrgan.setText(0+"");
+            ivOrgan.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivOrgan);
         }
         else {
             tvOrgan.setText(highScore.tebakOrganScore+"");
@@ -103,6 +111,9 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.tebakWarnaScore == 1){
             tvWarna.setText(0+"");
+            ivWarna.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivWarna);
+
         }
         else {
             tvWarna.setText(highScore.tebakWarnaScore+"");
@@ -110,6 +121,9 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.penjumlahanScore == 1){
             tvPenjumlahan.setText(0+"");
+            ivPenjumlahan.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivPenjumlahan);
+
         }
         else {
             tvPenjumlahan.setText(highScore.penjumlahanScore+"");
@@ -117,6 +131,9 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.penguranganScore == 1){
             tvPengurangan.setText(0+"");
+            ivPengurangan.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivPengurangan);
+
         }
         else {
             tvPengurangan.setText(highScore.penguranganScore+"");
@@ -125,6 +142,9 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.hitungGambarScore == 1){
             tvHitungGambar.setText(0+"");
+            ivHitungGambar.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivHitungGambar);
+
         }
         else {
             tvHitungGambar.setText(highScore.hitungGambarScore+"");
@@ -132,6 +152,8 @@ public class HighscoreActivity extends AppCompatActivity {
 
         if (highScore.tebakAngkaScore == 1){
             tvTebakAngka.setText(0+"");
+            ivTebakAngka.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.chalk), PorterDuff.Mode.SRC_IN);
+            Picasso.with(getApplicationContext()).load(R.drawable.sad).into(ivTebakAngka);
         }
         else {
             tvTebakAngka.setText(highScore.tebakAngkaScore+"");
