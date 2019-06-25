@@ -28,6 +28,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textSize="20sp"
+                android:text="@string/textpreview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"/>
@@ -41,8 +42,8 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:layout_centerInParent="true"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
                     android:background="@drawable/backgroundimage" />
 
                 <ImageView
