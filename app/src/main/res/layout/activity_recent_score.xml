@@ -139,7 +139,7 @@
             android:foreground="@drawable/transparent"
             android:textColor="@color/background"
             android:background="@drawable/roundbtn"
-            android:backgroundTint="@color/yellow"
+            android:backgroundTint="@color/wood"
             android:textSize="12sp"
             android:textStyle="bold" />
 

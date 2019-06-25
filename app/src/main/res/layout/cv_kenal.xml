@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:id="@+id/linear2"
             android:orientation="vertical"
             android:layout_centerHorizontal="true"
@@ -21,21 +21,12 @@
             android:layout_height="wrap_content">
 
 
-            <ImageView
-                android:visibility="visible"
-                android:id="@+id/ivBackKenal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:layout_toStartOf="@+id/ivBorder"
-                android:tint="@color/chalk"
-                android:src="@drawable/ic_arrow_back_black_24dp" />
+
 
             <ImageView
                 android:id="@+id/ivBorder"
-                android:layout_marginTop="20dp"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="300dp"
+                android:layout_height="250dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/backgroundimage"/>
 
@@ -48,15 +39,7 @@
                 android:src="@drawable/progress_animation"/>
 
 
-            <ImageView
-                android:visibility="visible"
-                android:id="@+id/ivNextKenal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:layout_toEndOf="@+id/ivBorder"
-                android:tint="@color/chalk"
-                android:src="@drawable/ic_arrow_forward_black_24dp" />
+
 
         </RelativeLayout>
 
@@ -106,6 +89,35 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@color/chalk" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/view2">
+            <ImageView
+                android:visibility="visible"
+                android:id="@+id/ivBackKenal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"
+                android:tint="@color/chalk"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            <ImageView
+                android:visibility="visible"
+                android:id="@+id/ivNextKenal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:tint="@color/chalk"
+                android:src="@drawable/ic_arrow_forward_black_24dp" />
+        </RelativeLayout>
+
+
 
 
     </RelativeLayout>
