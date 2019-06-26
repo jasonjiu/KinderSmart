@@ -61,6 +61,8 @@
             <ImageView
                 android:id="@+id/ivSoundTebakGambar"
                 android:layout_margin="30dp"
+                android:src="@drawable/ic_volume_up_black_24dp"
+                android:tint="@color/chalk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -83,24 +85,24 @@
             <LinearLayout
                 android:id="@+id/linear3"
                 android:gravity="center"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:textColor="@color/white"
+                    android:textColor="@color/chalk"
                     android:text="@string/textpreview"
-                    android:backgroundTint="@color/chalky_yello"
+                    android:backgroundTint="@color/wood"
                     android:background="@drawable/roundbtn"
-                    android:layout_marginEnd="70dp"
+                    android:layout_marginEnd="50dp"
                     android:id="@+id/btnJawabTebak1"
                     android:layout_width="120dp"
                     android:layout_height="70dp"/>
 
                 <Button
                     android:text="@string/textpreview"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/chalky_yello"
+                    android:textColor="@color/chalk"
+                    android:backgroundTint="@color/wood"
                     android:background="@drawable/roundbtn"
                     android:id="@+id/btnJawabTebak2"
                     android:layout_width="120dp"
@@ -112,25 +114,25 @@
             <LinearLayout
                 android:id="@+id/linear4"
                 android:gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@+id/linear3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
                     android:text="@string/textpreview"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/chalky_yello"
+                    android:textColor="@color/chalk"
+                    android:backgroundTint="@color/wood"
                     android:background="@drawable/roundbtn"
-                    android:layout_marginEnd="70dp"
+                    android:layout_marginEnd="50dp"
                     android:id="@+id/btnJawabTebak3"
                     android:layout_width="120dp"
                     android:layout_height="70dp"/>
 
                 <Button
                     android:text="@string/textpreview"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/chalky_yello"
+                    android:textColor="@color/chalk"
+                    android:backgroundTint="@color/wood"
                     android:background="@drawable/roundbtn"
                     android:id="@+id/btnJawabTebak4"
                     android:layout_width="120dp"

@@ -171,7 +171,7 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
                                 soalQuizList.clear();
                                 try {
                                     listSoal = response.getJSONArray("result");
-                                    Log.d("listSoal",listSoal.toString());
+//                                    Log.d("listSoal",listSoal.toString());
                                     for (int i = 0; i < listSoal.length(); i++) {
                                         try {
                                             loading.setVisibility(View.GONE);
@@ -187,7 +187,8 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
                                                     obj.getString("pilihan_jawaban_2"),
                                                     obj.getString("pilihan_jawaban_3"),
                                                     obj.getString("pilihan_jawaban_4"),
-                                                    obj.getString("soal")));
+                                                    obj.getString("soal"),
+                                                    obj.getString("soal_suara")));
                                         } catch (JSONException e1) {
                                             e1.printStackTrace();
                                         }
@@ -215,23 +216,12 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
         queue.add(rec);
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 
     @Override
     public void onImageClick(String data, int position) {
 
 
-        Log.d("wow", position+"");
-
-        Log.d("score", score+"");
-        Log.d("getextra", getKategoriExtra);
-
         try {
-            Log.d("kuncijawaban", soalQuizList.get(position).getKunci_jawaban());
-            Log.d("jawaban", data);
             if (data.equals(soalQuizList.get(position).getKunci_jawaban())){
                 score += 10;
 //                Toast.makeText(context, "score"+score, Toast.LENGTH_SHORT).show();
@@ -310,6 +300,40 @@ public class QuizActivity extends AppCompatActivity implements OnImageClickListe
                 finish();
             }
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        try {
+            quizAdapter.isPlaying = "true";
+            quizAdapter.notifyDataSetChanged();
+//            Log.d("playing", quizAdapter.isPlaying+"");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        try {
+            if ( quizAdapter.suaraSoal.isPlaying()){
+                quizAdapter.suaraSoal.stop();
+                if (isFinishing()){
+                    quizAdapter.suaraSoal.stop();
+                    quizAdapter.suaraSoal.release();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        super.onPause();
     }
 
 }

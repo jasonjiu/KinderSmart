@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Koneksi_error"
+        android:textColor="@color/chalk"
+        android:layout_margin="30dp"
         android:textAlignment="center"/>
 
     <!-- TODO: Update blank fragment layout -->

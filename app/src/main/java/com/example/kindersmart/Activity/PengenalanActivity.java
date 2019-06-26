@@ -169,7 +169,7 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
                                 mengenalList.clear();
                                 try {
                                     listSoal = response.getJSONArray("result");
-                                    Log.d("listSoal",listSoal.toString());
+//                                    Log.d("listSoal",listSoal.toString());
                                     for (int i = 0; i < listSoal.length(); i++) {
                                         try {
                                             loading.setVisibility(View.GONE);
@@ -245,7 +245,7 @@ public class PengenalanActivity extends AppCompatActivity implements OnImageClic
         try {
             kenalGambarAdapter.isPlaying = "true";
             kenalGambarAdapter.notifyDataSetChanged();
-            Log.d("playing", kenalGambarAdapter.isPlaying+"");
+//            Log.d("playing", kenalGambarAdapter.isPlaying+"");
         }catch (Exception e){
             e.printStackTrace();
         }

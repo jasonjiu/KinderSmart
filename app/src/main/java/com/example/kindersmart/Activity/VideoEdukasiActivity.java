@@ -160,7 +160,7 @@ public class VideoEdukasiActivity extends AppCompatActivity {
                         videoList.clear();
                         try {
                             listVideo = response.getJSONArray("result");
-                            Log.d("listVideo",listVideo.toString());
+//                            Log.d("listVideo",listVideo.toString());
                             for (int i = 0; i < listVideo.length(); i++) {
                                 try {
                                     loading.setVisibility(View.GONE);
