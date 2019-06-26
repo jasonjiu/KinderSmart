@@ -1,6 +1,7 @@
 package com.example.kindersmart.Activity.Adapter;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,11 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.kindersmart.Activity.Model.OnImageClickListener;
 import com.example.kindersmart.Activity.Model.SoalQuiz;
 import com.example.kindersmart.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.List;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> {
@@ -25,6 +29,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
     private OnImageClickListener            onImageClickListener;
     private int                             lastPos = 0;
     private MediaPlayer                     trueFalseSound;
+    public  MediaPlayer                     suaraSoal;
+    public  String                          isPlaying = "true";
 
 
     public QuizAdapter(Context context) {
@@ -55,6 +61,46 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
         holder.jbtn2.setText(soalQuiz.getPilihan_jawaban2());
         holder.jbtn3.setText(soalQuiz.getPilihan_jawaban3());
         holder.jbtn4.setText(soalQuiz.getPilihan_jawaban4());
+
+        if(isPlaying.equals("true")){
+            holder.sound.setEnabled(true);
+        }
+
+        holder.sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(500)
+                        .repeat(2)
+                        .playOn(holder.sound);
+                holder.sound.setEnabled(false);
+                try {
+                    suaraSoal = new MediaPlayer();
+                    suaraSoal.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    suaraSoal.setDataSource(soalQuiz.getSuara_soal());
+                    suaraSoal.prepare();
+                    suaraSoal.start();
+                    holder.sound.setEnabled(true);
+                    suaraSoal.setLooping(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    holder.sound.setEnabled(true);
+                }
+
+                if (suaraSoal.isPlaying()){
+//                    Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+                    holder.sound.setEnabled(false);
+                }
+
+                suaraSoal.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+//                        Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+                        holder.sound.setEnabled(true);
+                    }
+                });
+            }
+        });
 
 
 
@@ -115,6 +161,12 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
               holder.jbtn1.postDelayed(new Runnable() {
                   @Override
                   public void run() {
+                      holder.sound.setEnabled(true);
+                      try {
+                          suaraSoal.stop();
+                      }catch (Exception e){
+                          e.printStackTrace();
+                      }
                       onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban1(), position);
                   }
               },300);
@@ -180,6 +232,12 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                 holder.jbtn2.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        holder.sound.setEnabled(true);
+                        try {
+                            suaraSoal.stop();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                         onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban2(), position);
                     }
                 },300);            }
@@ -241,6 +299,12 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                 holder.jbtn3.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        holder.sound.setEnabled(true);
+                        try {
+                            suaraSoal.stop();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                         onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban3(), position);
                     }
                 },300);
@@ -303,6 +367,12 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.tgViewHolder> 
                 holder.jbtn4.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        holder.sound.setEnabled(true);
+                        try {
+                            suaraSoal.stop();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                         onImageClickListener.onImageClick(soalQuiz.getPilihan_jawaban4(), position);
                     }
                 },300);            }

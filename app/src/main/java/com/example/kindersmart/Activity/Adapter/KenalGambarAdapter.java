@@ -82,14 +82,14 @@ public class KenalGambarAdapter extends RecyclerView.Adapter<KenalGambarAdapter.
                 }
 
                 if (kenalSound.isPlaying()){
-                    Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "playing", Toast.LENGTH_SHORT).show();
                    holder.sound.setEnabled(false);
                 }
 
                 kenalSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "is done", Toast.LENGTH_SHORT).show();
                         holder.sound.setEnabled(true);
                     }
                 });

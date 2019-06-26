@@ -12,7 +12,6 @@ android {
     }
     buildTypes {
         release {
-            buildConfigField "String", "BASE_URL", "\"https://mikeztj.com/Jason/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

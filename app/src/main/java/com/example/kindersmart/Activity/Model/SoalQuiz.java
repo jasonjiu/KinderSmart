@@ -10,9 +10,10 @@ public class SoalQuiz {
     private String  pilihan_jawaban3;
     private String  pilihan_jawaban4;
     private String  soal;
+    private String  suara_soal;
 
     public SoalQuiz(int idSoal, int soal_ke, String url_soal, String kunci_jawaban,
-                    String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4, String soal) {
+                    String pilihan_jawaban1, String pilihan_jawaban2, String pilihan_jawaban3, String pilihan_jawaban4, String soal, String suara_soal) {
         this.idSoal             = idSoal;
         this.soal_ke            = soal_ke;
         this.url_soal           = url_soal;
@@ -22,6 +23,15 @@ public class SoalQuiz {
         this.pilihan_jawaban3   = pilihan_jawaban3;
         this.pilihan_jawaban4   = pilihan_jawaban4;
         this.soal               = soal;
+        this.suara_soal         = suara_soal;
+    }
+
+    public String getSuara_soal() {
+        return suara_soal;
+    }
+
+    public void setSuara_soal(String suara_soal) {
+        this.suara_soal = suara_soal;
     }
 
     public String getSoal() {
