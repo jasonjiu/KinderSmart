@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@drawable/backgroundimage"
-    tools:context="com.example.kindersmart.Activity.RecentScoreActivity">
+    tools:context="com.edu.kindersmart.Activity.RecentScoreActivity">
 
 
 

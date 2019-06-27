@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kindersmart">
+    package="com.edu.kindersmart">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/SplashTheme">
-        <activity android:name=".Activity.SplashScreenActivity"
+        <activity android:name="com.edu.kindersmart.Activity.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,24 +21,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.LoadingScreen"
+        <activity android:name="com.edu.kindersmart.Activity.LoadingScreen"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".Activity.PengenalanActivity"
+        <activity android:name="com.edu.kindersmart.Activity.PengenalanActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.QuizActivity"
+        <activity android:name="com.edu.kindersmart.Activity.QuizActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.HighscoreActivity"
+        <activity android:name="com.edu.kindersmart.Activity.HighscoreActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.MenuActivity"
+        <activity android:name="com.edu.kindersmart.Activity.MenuActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Activity.KategoriActivity"
+        <activity android:name="com.edu.kindersmart.Activity.KategoriActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.VideoEdukasiActivity"
+        <activity android:name="com.edu.kindersmart.Activity.VideoEdukasiActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.RecentScoreActivity"
+        <activity android:name="com.edu.kindersmart.Activity.RecentScoreActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.YoutubePlayerActivity"
+        <activity android:name="com.edu.kindersmart.Activity.YoutubePlayerActivity"
             android:screenOrientation="portrait"/>
     </application>
 
